@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      div {
+        position: relative;
+        /* left: calc(100% - 70px); */
+        width: 70px;
+        height: 35px;
+        background-color: magenta;
+        margin-bottom: 1rem;
+      }
+
+      .linear {
+        animation: move 2s linear infinite;
+      }
+      .ease-in {
+        animation: move 2s ease-in infinite;
+      }
+      .ease-in-out {
+        animation: move 2s ease-in-out infinite;
+      }
+      .ease-out {
+        animation: move 2s ease-out infinite;
+      }
+      .cubic-bezier {
+        animation: move 2s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+      }
+
+      @keyframes move {
+        0% {
+          left: 0;
+        }
+        100% {
+          left: calc(100% - 70px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p>linear</p>
+    <div class="linear"></div>
+    <p>ease-in</p>
+    <div class="ease-in"></div>
+    <p>ease-in-out</p>
+    <div class="ease-in-out"></div>
+    <p>ease-out</p>
+    <div class="ease-out"></div>
+    <p>cubic-bezier</p>
+    <div class="cubic-bezier"></div>
+  </body>
+</html>
