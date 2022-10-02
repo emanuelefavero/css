@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --margin: 6rem;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        background-color: hsl(160, 51%, 60%);
+
+        /* set fixed margin size regardless of viewport width */
+        width: calc(100% - var(--margin));
+
+        /* set height margins as a fraction of viewport height */
+        height: calc(100vh / 3);
+      }
+
+      .box:hover {
+        /* increase brightness on hover */
+        background-color: hsl(160, calc(51% + 5%), calc(60% + 5%));
+      }
+
+      h1 {
+        /* more width = bigger text */
+        font-size: calc(1.5rem + 5vw);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>This is a box</h1>
+    </div>
+  </body>
+</html>
