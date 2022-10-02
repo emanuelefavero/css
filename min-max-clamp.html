@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      /* mix() will select the smallest possible value. When viewport is smaller than 400px the box will take the viewport width size, without adding scrollbars */
+      .box-min {
+        background-color: rgb(241, 244, 246);
+        width: min(400px, 100%);
+        height: min(400px, 100%);
+      }
+
+      /* max() will select the largest possible value from within the parentheses and stay there */
+      p {
+        /* background-color: violet;
+        width: max(400px, 100%);
+        height: max(900px, 100%); */
+        font-size: max(1rem, 5vw);
+      }
+
+      /* clamp() will select the smallest acceptable value (1.5rem), the ideal value (10vw, related to viewport width) and the biggest value (10rem) */
+      /* clamp() is awesome for making stuff responsive, without media queries */
+      h1 {
+        font-size: clamp(1.5rem, 10vw, 10rem);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-min"></div>
+    <p>Hello max</p>
+    <h1>Hello Clamp</h1>
+  </body>
+</html>
