@@ -1,0 +1,36 @@
+/* The following @use rule is needed when testing the code in CodePen.io */
+/* @use postcss-preset-env; */
+
+/* BEWARE: As of late 2022 this is NOT a valid CSS syntax. It will raise rules errors */
+
+* {
+  font-size: 1.5rem;
+}
+
+article {
+  background-color: navy;
+
+  /* NOTE: The replaces the parent selector */
+  /* Before we only could've done this: article p {} */
+  /* Now nesting is allowed, thanks to the & */
+  & p {
+    color: white;
+
+    & a {
+      color: violet;
+
+      /* Nested Media Queries are awesome because we can finally have everything related to one element in the same place   */
+      @media (max-width: 500px) {
+        background-color: gold;
+      }
+    }
+  }
+
+  /* BEWARE: every property that it is put after nesting will NOT be read by css! */
+  /* This next line will NOT be read! */
+  /*   background-color: red; */
+
+  /* In essence, THERE SHOULD BE NO CSS CODE AFTER NESTED (&) SCOPE */
+}
+
+/* TIP: Try to avoid adding nested properties when selecting multiple elements with commas (e.g. article, section {}) for specificity reasons. */
