@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      input,
+      textarea,
+      button,
+      select,
+      a,
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        text-decoration: none;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
+        background: linear-gradient(45deg, #181129, #174982);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 100vh;
+        padding: 3rem;
+        overflow: hidden;
+      }
+
+      .neumorphism-card {
+        position: relative;
+        width: 300px;
+        height: 350px;
+        background-color: rgba(245, 245, 249, 1);
+        border-radius: 1.25rem;
+        box-shadow: inset 6px 6px 10px #bbb8c9, inset 3px 3px 7px #83839aca,
+          inset -6px -6px 3px #ccc9de, inset -3px -3px 10px #1c1c229c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        transition: all 0.5s ease;
+        padding: 6rem 3rem;
+      }
+
+      .neumorphism-card h4,
+      .neumorphism-card h2 {
+        margin-bottom: 1.15rem;
+      }
+
+      .neumorphism-card h4 {
+        color: rgb(6, 182, 144);
+        text-shadow: 1px 1px 1px rgba(48, 45, 55, 0.2);
+        text-transform: uppercase;
+        font-size: 2rem;
+        user-select: none;
+      }
+
+      .neumorphism-card h2 {
+        color: rgb(33, 33, 33);
+        text-shadow: 2px 2px 1px rgba(48, 45, 55, 0.35);
+        font-size: 6rem;
+        user-select: none;
+      }
+
+      .neumorphism-card button {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: white;
+        padding: 0.65rem 1.5rem;
+        border: none;
+        border-radius: 100px;
+        background: linear-gradient(70deg, #de104e, #ea9e06);
+        box-shadow: 1px 1px 2px rgba(48, 45, 55, 0.35);
+        cursor: pointer;
+      }
+
+      .neumorphism-card button:hover {
+        transition: 0.2s ease;
+        box-shadow: inset 1px 1px 2px rgba(48, 45, 55, 0.35);
+        transform: translateY(1px);
+        background: linear-gradient(70deg, #d30f4a, #de9606);
+      }
+
+      .neumorphism-card button:active {
+        transition: 0.2s ease;
+        background: linear-gradient(70deg, #960934, #815703);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="neumorphism-card">
+      <h4>▲</h4>
+      <h2>128</h2>
+      <button>Lorem, ipsum.</button>
+    </div>
+  </body>
+</html>
