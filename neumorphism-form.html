@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      input,
+      textarea,
+      button,
+      select,
+      a,
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        text-decoration: none;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #011627;
+      }
+
+      /* Neumorphism Form (works best with body background color #011627) */
+      .Form {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 400px;
+        padding: 2rem 3rem;
+        margin-top: 1rem;
+        background-color: #fff;
+        border-radius: 0.5rem;
+        background: #011627;
+        box-shadow: 6px 6px 12px #000910, -6px -6px 12px #02233e;
+      }
+
+      .Form .formTitle {
+        font-size: 0.875rem;
+        background: -webkit-linear-gradient(45deg, #2d6ca40c, #4382b9);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .Form h2 {
+        width: 100%;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        background: -webkit-linear-gradient(45deg, #2d6ca40c, #4382b9);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        user-select: none;
+      }
+
+      .Form input {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+        border: 0;
+        border-radius: 0.5rem;
+        margin-bottom: 0.6rem;
+        background: #011627;
+        box-shadow: inset 2px 2px 4px #000a12c8, inset -2px -2px 4px #02223cd5;
+        color: #3f84c0;
+      }
+
+      .Form input::placeholder {
+        color: #3e7fb7;
+      }
+
+      .Form input:focus {
+        outline: none;
+        border: 1px solid rgb(25, 218, 111);
+        border-color: rgb(25, 218, 111);
+        color: rgb(25, 218, 111);
+        caret-color: rgb(25, 218, 111);
+      }
+
+      .Form button {
+        width: 100%;
+        font-size: 0.875rem;
+        padding: 0.6rem 1rem;
+        margin-top: 0.5rem;
+        text-transform: uppercase;
+        border: 0;
+        border-radius: 0.5rem;
+        background: #011627;
+        box-shadow: 2px 2px 4px #000a12c8, -2px -2px 4px #02223cd5;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .Form button:hover {
+        box-shadow: 4px 4px 8px #000a12c8, -4px -4px 8px #02223cd5;
+        background: rgba(25, 218, 111, 0.02);
+        color: rgb(25, 218, 111);
+      }
+
+      .Form button:active {
+        box-shadow: inset 2px 2px 4px #000a12c8, inset -2px -2px 4px #02223cd5;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="Form">
+      <h2>Form</h2>
+      <input type="text" placeholder="name" />
+      <input type="text" placeholder="password" />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
