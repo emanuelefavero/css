@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Google Fonts Poppins -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        input,
+        input:active,
+        textarea,
+        button,
+        select,
+        a,
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            text-decoration: none;
+            outline: none;
+        }
+
+        body {
+            background: rgb(18, 23, 34);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            transition: .5s ease-out;
+            position: relative;
+            z-index: 200;
+            width: 100%;
+            height: 48px;
+            background: #333333;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            transition: 1s;
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.801);
+            cursor: pointer;
+        }
+
+        .navbar .logo:hover {
+            transition: .5s;
+            color: #fff;
+        }
+
+        .navbar .menu-button {
+            display: inline-block;
+            position: relative;
+            z-index: 300;
+            cursor: pointer;
+        }
+
+        .navbar .menu-button:hover {
+            transition: .5s;
+            color: #fff;
+        }
+
+        /* Navbar Animation while dropdown-menu is on */
+        .navbar.while-dropdown-menu-on {
+            transition: .5s ease-in;
+            background: #000;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            transition: .3s ease-out;
+            width: 100%;
+            height: 0vh;
+            opacity: 0%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 200;
+            background: black;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 48px;
+        }
+
+        /* Dropdown Menu Slide Down Animation */
+        .dropdown-menu.active {
+            transition: .5s ease-in;
+            height: 100vh;
+            opacity: 100%;
+        }
+
+        .dropdown-menu .links {
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            flex-direction: column;
+            width: 100%;
+            padding: 0 4rem;
+        }
+
+        /* Links line dividers */
+        .dropdown-menu .links a {
+            width: 100%;
+            padding: .5rem 0;
+            transition: 1s;
+            color: rgba(255, 255, 255, 0.801);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown-menu .links a:first-of-type {
+            border-top: none;
+        }
+
+        .dropdown-menu .links a:hover {
+            transition: .5s;
+            color: #fff;
+        }
+
+        .dropdown-menu .search-section {
+            display: flex;
+            justify-content: center;
+            /* align-items: left; */
+            flex-direction: column;
+            width: 100%;
+            padding: 1rem 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown-menu .search-section .search {
+            transition: 1s;
+            width: 100%;
+            padding: .5rem .5rem;
+            border-radius: 7px;
+            font-size: 1rem;
+            border: none;
+            background: #1d1d1f;
+            color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="dropdown-menu">
+        <div class="search-section">
+            <input class="search" type="search" name="search" placeholder="O- Search on ourstore.com">
+        </div>
+            <div class="links">
+                <a href="#">Home</a>
+                <a href="#">Phones</a>
+                <a href="#">Computers</a>
+                <a href="#">Accessories</a>
+                <a href="#">About</a>
+            </div>
+    </nav>
+    <header class="navbar">
+        <span class="menu-button logo">M</span>
+        <span class="brand-logo logo">L</span>
+        <span class="shoping-cart-icon logo">S</span>
+    </header>
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        const navbar = document.querySelector('.navbar');
+        menuButton.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('active');
+            navbar.classList.toggle('while-dropdown-menu-on');
+        })
+
+    </script>
+</body>
+
+</html>
