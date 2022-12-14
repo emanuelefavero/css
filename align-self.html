@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        background-color: lightcyan;
+      }
+
+      .flex-item {
+        text-align: center;
+        background: magenta;
+        color: white;
+        width: 100px;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        /* line-height: 100px; */
+      }
+
+      .flex-start {
+        align-self: flex-start;
+      }
+      .flex-end {
+        align-self: flex-end;
+      }
+      .center {
+        align-self: center;
+      }
+      .baseline {
+        align-self: baseline;
+      }
+      .stretch {
+        align-self: stretch;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- flex align-self -->
+    <div class="container">
+      <div class="flex-item flex-start">flex-start</div>
+      <div class="flex-item flex-end">flex-end</div>
+      <div class="flex-item center">center</div>
+      <div class="flex-item baseline">baseline</div>
+      <div class="flex-item stretch">stretch</div>
+    </div>
+  </body>
+</html>
