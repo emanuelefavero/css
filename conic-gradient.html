@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        margin: 0;
+        box-sizing: border-box;
+
+        background-color: rgb(10, 18, 46);
+        font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 600;
+        font-size: 2.5rem;
+
+        width: 100%;
+        height: 100vh;
+        padding: 1rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      /* CONIC GRADIENT */
+      .conic-gradient {
+        color: #fff;
+        width: 75px;
+        height: 75px;
+        /* border-radius: 100px; */
+        border-radius: 12px;
+        margin: 0.4rem;
+
+        /* animation: rotate 6s linear infinite; */
+      }
+
+      .conic-gradient.gray-scale {
+        background: conic-gradient(
+          #ffffff80,
+          #ffffff40,
+          #ffffff30,
+          #ffffff20,
+          #ffffff10,
+          #ffffff10,
+          #ffffff80
+        );
+      }
+
+      .conic-gradient.simple {
+        background-image: conic-gradient(#0ba1ffff, #160457ff);
+      }
+
+      .conic-gradient.angle {
+        background-image: conic-gradient(from 36deg, #0ba1ffff, #160457ff);
+      }
+
+      .conic-gradient.position {
+        background-image: conic-gradient(
+          from 45deg at 25% 75%,
+          #0ba1ffff,
+          #160457ff
+        );
+      }
+
+      .conic-gradient.half {
+        background-image: conic-gradient(
+          from 45deg at 0% 100%,
+          #0ba1ffff,
+          #160457ff
+        );
+      }
+
+      .conic-gradient.color-stops {
+        background-image: conic-gradient(
+          from 45deg at 25% 75%,
+          #0ba1ffff 0%,
+          #160457ff 25%,
+          #a5d4f1ff 30%
+        );
+      }
+
+      .conic-gradient.hard-transition {
+        background-image: conic-gradient(
+          from 45deg at 25% 75%,
+          #0ba1ffff 0% 25%,
+          #160457ff 25% 30%,
+          #a5d4f1ff 30% 50%
+        );
+      }
+
+      .conic-gradient.skinny {
+        background: conic-gradient(
+          from 1.1turn at 50% 50%,
+          #0ba1ffff,
+          10deg,
+          #160457ff,
+          350deg,
+          #a5d4f1ff
+        );
+      }
+
+      .conic-gradient.hard-line-plus-gradient {
+        background: conic-gradient(
+          from 3.1416rad at 10% 0%,
+          #0ba1ffff,
+          #160457ff
+        );
+      }
+
+      .conic-gradient.outside {
+        background: conic-gradient(
+          from 3.1416rad at -10% 20%,
+          #0ba1ffff,
+          #160457ff
+        );
+      }
+
+      /* rotate animation */
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- CONIC GRADIENT -->
+    <div class="conic-gradient gray-scale"></div>
+    <div class="conic-gradient simple"></div>
+    <div class="conic-gradient angle"></div>
+    <div class="conic-gradient position"></div>
+    <div class="conic-gradient half"></div>
+    <div class="conic-gradient color-stops"></div>
+    <div class="conic-gradient hard-transition"></div>
+    <div class="conic-gradient skinny"></div>
+    <div class="conic-gradient hard-line-plus-gradient"></div>
+    <div class="conic-gradient outside"></div>
+  </body>
+</html>
