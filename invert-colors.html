@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Google Fonts Lato -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Boilerplate --> */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      main {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        height: 100vh;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      button {
+        background: rgb(9, 117, 233);
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        color: #fff;
+        padding: 0.5rem 1.5rem;
+        border: none;
+        border-radius: 16px;
+        cursor: pointer;
+      }
+      /* <-- Boilerplate ends */
+
+      /* DARK MODE */
+      /* Choose a background that is the opposite color of the original one */
+      .background-dark-mode {
+        background: #000;
+        transition: 0.3s;
+      }
+
+      /* Invert Colors */
+      .dark-mode {
+        filter: invert(1) hue-rotate(180deg);
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>Enable Dark Mode with just one click</h1>
+      <button id="darkModeButton">Light Mode</button>
+    </main>
+
+    <script>
+      // DARK MODE
+      const darkModeButton = document.getElementById('darkModeButton')
+      const main = document.querySelector('main')
+      const h1 = document.querySelector('h1')
+
+      darkModeButton.addEventListener('click', () => {
+        // HERE you can add dark mode to any element
+        main.classList.toggle('background-dark-mode')
+        h1.classList.toggle('dark-mode')
+
+        // Update button text
+        if (darkModeButton.textContent == 'Light Mode') {
+          darkModeButton.textContent = 'Dark Mode' // add \xa0 for forced space
+        } else {
+          darkModeButton.textContent = 'Light Mode'
+        }
+      })
+    </script>
+  </body>
+</html>
