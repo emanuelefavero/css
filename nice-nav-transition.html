@@ -8,10 +8,8 @@
       @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 
       :root {
-        /* INDICATOR WIDTH - if you add more icons, lower px values */
-        /* 5 elements = 80px */
-        /* 6 elements = 66px */
-        --indicator-width: 80px;
+        /* NAV WIDTH */
+        --nav-width: 80px;
       }
       * {
         margin: 0;
@@ -53,7 +51,7 @@
       .navigation ul li {
         position: relative;
         list-style: none;
-        width: var(--indicator-width);
+        width: var(--nav-width);
         height: 80px;
         z-index: 1;
       }
@@ -81,7 +79,7 @@
       }
       .navigation ul li.active a .icon {
         transform: translateY(-7px);
-        color: hsla(258, 100%, 61%, 1);
+        color: #fff;
       }
       .navigation ul li a .text {
         position: absolute;
@@ -90,7 +88,6 @@
         font-size: 0.65em;
         letter-spacing: 0.05em;
         transition: 0.5s;
-        color: #222327;
         color: rgba(233, 234, 240, 1);
         text-transform: uppercase;
         font-weight: 600;
@@ -99,48 +96,6 @@
       .navigation ul li.active a .text {
         transform: translateY(16px);
         opacity: 1;
-      }
-
-      /* INDICATOR */
-      .indicator {
-        position: absolute;
-        width: var(--indicator-width);
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: 0.3s;
-        z-index: -1;
-      }
-      .indicator::before {
-        content: '';
-        position: absolute;
-        bottom: 12px;
-        width: 80%;
-        height: 16px;
-        background: hsla(258, 92%, 55%, 1);
-        box-shadow: 1px 1px 1px hsla(258, 91%, 61%, 0.832) inset,
-          0 0 1px hsla(266, 89%, 7%, 1) inset;
-        padding: 0.08rem 0.2rem;
-        border-radius: 10px;
-      }
-
-      .navigation ul li:nth-child(2).active ~ .indicator {
-        transform: translateX(calc(var(--indicator-width) * 1));
-      }
-      .navigation ul li:nth-child(3).active ~ .indicator {
-        transform: translateX(calc(var(--indicator-width) * 2));
-      }
-      .navigation ul li:nth-child(4).active ~ .indicator {
-        transform: translateX(calc(var(--indicator-width) * 3));
-      }
-      .navigation ul li:nth-child(5).active ~ .indicator {
-        transform: translateX(calc(var(--indicator-width) * 4));
-      }
-      .navigation ul li:nth-child(6).active ~ .indicator {
-        transform: translateX(calc(var(--indicator-width) * 5));
       }
     </style>
   </head>
@@ -198,9 +153,6 @@
             <span class="text">Settings</span>
           </a>
         </li>
-
-        <!-- INDICATOR -->
-        <div class="indicator"></div>
       </ul>
     </nav>
 
