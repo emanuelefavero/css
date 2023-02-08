@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neumorphism 3d Checkbox</title>
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- CSS -->
+    <style>
+      /* Default Styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #19222e;
+      }
+
+      /* Checkbox Styling */
+      .checkboxes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        /* max-width: 140px; */
+        gap: 20px; /* gap between checkboxes */
+      }
+      .checkboxes label {
+        position: relative;
+
+        /* Size */
+        width: 62px;
+        height: 62px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .checkboxes label input {
+        appearance: none;
+      }
+      .checkboxes label span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(#212c3b, #19222e, #121a23);
+        border: 1px solid #0f141b;
+
+        /* Radius */
+        /* border-radius: 12px; */
+        border-radius: 999px;
+
+        box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.311),
+          0 1px 1px rgba(0, 0, 0, 0.301), 0 3px 7px rgba(0, 0, 0, 0.284);
+      }
+      .checkboxes label input:checked ~ span {
+        box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.232),
+          inset 0 5px 5px rgba(0, 0, 0, 0.268),
+          inset 0 7px 12px rgba(0, 0, 0, 0.212);
+      }
+      .checkboxes label span::before {
+        content: '';
+        position: absolute;
+        inset: 7px 4px;
+
+        /* remove if button is round */
+        /* border-top: 1px solid #cccccc56; */
+
+        filter: blur(2px);
+      }
+      /* Icon in Turn Off State */
+      .checkboxes label i {
+        position: relative;
+        z-index: 10;
+
+        /* Icon Size */
+        font-size: 1.5em;
+
+        /* Icon Off Color */
+        color: #65316c;
+      }
+
+      /* Icon in Turn On State */
+      .checkboxes label input:checked ~ i {
+        transition: 0.1s;
+
+        /* Icon On Color */
+        color: #eddbfe;
+        text-shadow: 0 0 5px #bd08ef, 0 0 8px #bd08ef;
+      }
+
+      /* ~ is the sibling combinator */
+      /* https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator */
+    </style>
+  </head>
+  <body>
+    <div class="checkboxes">
+      <!-- Checkbox -->
+      <label>
+        <input type="checkbox" name="check" />
+        <span></span>
+        <i class="fa-solid fa-wifi"></i>
+      </label>
+      <!-- Add more here... -->
+    </div>
+  </body>
+</html>
