@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* -------------------------------------------------- */
+      /* default styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        background-color: #09091c;
+        color: #fff;
+      }
+
+      input,
+      textarea,
+      button,
+      select,
+      a,
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        text-decoration: none;
+      }
+      /* -------------------------------------------------- */
+
+      /* BUBBLE EFFECT (on mouse position) */
+      #bubble-wrapper {
+        width: 100%;
+        height: 100%;
+
+        position: fixed;
+        bottom: 0px;
+
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .bubble {
+        /* `````` */
+        /* make it a bubble */
+        width: max(300px, 30vw);
+        height: max(300px, 30vw);
+        /* `````` */
+
+        /* `````` */
+        /* make it a thin line */
+        /* width: 10vw; */
+        /* height: 3px; */
+        /* `````` */
+
+        background-color: rgb(139, 54, 251);
+        /* border: 1px dotted #fff; */
+        /* box-shadow: 0px 0px 7px #ffffff21; */
+        border-radius: 100%;
+
+        position: absolute;
+        left: 50%;
+        top: 100%;
+
+        animation: wave 2s ease-in-out infinite;
+      }
+
+      @keyframes wave {
+        from,
+        to {
+          transform: translate(-50%, 0%);
+        }
+
+        50% {
+          transform: translate(-50%, -15%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>hover the mouse over the page to see the effect</h2>
+    <div id="bubble-wrapper">
+      <!-- <div class="bubble"></div> -->
+    </div>
+
+    <script>
+      const wrapper = document.getElementById('bubble-wrapper')
+
+      const animateBubble = (x) => {
+        const bubble = document.createElement('div')
+
+        bubble.className = 'bubble'
+
+        bubble.style.left = `${x}px` // TIP: // x = mouse x position
+
+        // ``````````````````````````````````````````````````````````````
+        // NOTE: Add rainbow colors to the effect
+        // TIP: You can remove this part if you don't want rainbow colors
+        const rainbowColors = [
+          'rgb(244, 67, 54)',
+          'rgb(233, 30, 99)',
+          'rgb(156, 39, 176)',
+          'rgb(103, 58, 183)',
+          'rgb(63, 81, 181)',
+          'rgb(33, 150, 243)',
+          'rgb(3, 169, 244)',
+          'rgb(0, 188, 212)',
+          'rgb(0, 150, 136)',
+          'rgb(76, 175, 80)',
+          'rgb(139, 195, 74)',
+          'rgb(205, 220, 57)',
+          'rgb(255, 235, 59)',
+          'rgb(255, 193, 7)',
+        ]
+
+        bubble.style.backgroundColor =
+          rainbowColors[Math.floor(Math.random() * rainbowColors.length)]
+        // ``````````````````````````````````````````````````````````````
+
+        wrapper.appendChild(bubble)
+
+        setTimeout(() => wrapper.removeChild(bubble), 2000)
+      }
+
+      window.onmousemove = (e) => {
+        // add delay to the effect
+        setTimeout(() => animateBubble(e.clientX), 10)
+        // animateBubble(e.clientX)
+      }
+      // TIP: // e.clientX = mouse x position
+    </script>
+  </body>
+</html>
