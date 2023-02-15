@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* ``````````````` */
+      /* Default Styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      input,
+      textarea,
+      button,
+      select,
+      a,
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        text-decoration: none;
+      }
+
+      html {
+        font-family: sans-serif;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background-color: #000e21;
+        color: #fff;
+      }
+      /* ``````````````` */
+
+      /* THEME PICKER */
+      :root {
+        --white: 240, 240, 240;
+        --pink: 255, 0, 180;
+        --violet: 150, 50, 255;
+        --blue: 50, 127, 255;
+        --green: 0, 255, 127;
+        --red: 248, 25, 50;
+
+        --theme-color: var(--pink); /* set default color */
+      }
+
+      /* Element To Style */
+      h1 {
+        background-color: rgba(var(--theme-color), 0.2);
+        color: rgba(var(--theme-color), 0.8);
+        border: 3px solid rgba(var(--theme-color), 0.4);
+
+        /* ```````````````````````````` */
+        /* not necessary, only cosmetic */
+        border-radius: 7px;
+        padding: 0.3rem 0.8rem;
+        margin-top: 1rem;
+        width: max-content;
+        /* ```````````````````````````` */
+      }
+
+      /* THEME PICKER Radio Input Custom Styling */
+      .theme-picker-section input[type='radio'] {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+      }
+
+      .theme-picker-section input[type='radio']:checked {
+        background-color: rgba(var(--theme-color), 0.8);
+      }
+
+      .theme-picker-section input[type='radio']:checked::before {
+        content: '';
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        background-color: rgba(var(--theme-color), 0.8);
+        border-radius: 50%;
+        margin: 0.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="theme-picker-section">
+      <input type="radio" name="theme" value="white" />
+
+      <!-- default color -->
+      <input type="radio" name="theme" value="pink" checked />
+
+      <input type="radio" name="theme" value="violet" />
+      <input type="radio" name="theme" value="blue" />
+      <input type="radio" name="theme" value="green" />
+      <input type="radio" name="theme" value="red" />
+    </div>
+    <h1>Hello</h1>
+
+    <script>
+      // Get all inputs with the name "theme" and add an event listener to each one
+      document.querySelectorAll('input[name="theme"]').forEach((input) =>
+        // When the input changes, run the following function
+        input.addEventListener('change', (e) => {
+          // Set the CSS variable --theme-color to the value of the input
+          document.documentElement.style.setProperty(
+            '--theme-color',
+            `var(--${e.target.value})`
+          )
+        })
+      )
+    </script>
+  </body>
+</html>
