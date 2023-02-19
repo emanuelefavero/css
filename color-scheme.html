@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* THEME */
+      html {
+        color-scheme: dark light;
+      }
+
+      body {
+        font-family: sans-serif;
+
+        background-color: #000;
+        color: #fff;
+      }
+
+      /* DARK MODE */
+      @media (prefers-color-scheme: light) {
+        html {
+          color-scheme: light dark;
+        }
+
+        body {
+          background-color: #fff;
+          color: #000;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Change your system dark / light theme to see the effect</h2>
+  </body>
+</html>
