@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* --------------- */
+      /* default styling */
+      body {
+        font-family: sans-serif;
+        background-color: rgb(249, 250, 251);
+        font-size: 2.5rem;
+        font-weight: 700;
+
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* --------------- */
+
+      .marquee-container {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .marquee {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 20s linear infinite;
+      }
+
+      /* --------------------------------------------------------------- */
+      /* just needed if you need different different html elements for each company instead of just text (for example for applying different colors) */
+      .marquee span {
+        padding-left: 0;
+        display: inline-block;
+      }
+
+      .marquee .lighter {
+        color: rgb(210, 214, 220);
+      }
+
+      .marquee .darker {
+        color: rgba(159, 166, 178);
+      }
+      /* --------------------------------------------------------------- */
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="marquee-container">
+      <span class="marquee">
+        <span class="lighter">Company A</span>
+        <span class="darker">Company B</span>
+        <span class="lighter">Company C</span>
+        <span class="darker">Company D</span>
+        <span class="lighter">Company E</span>
+        <span class="darker">Company F</span>
+        <span class="lighter">Company G</span>
+        <span class="darker">Company H</span>
+        <span class="lighter">Company I</span>
+        <span class="darker">Company J</span>
+        <span class="lighter">Company K</span>
+        <span class="darker">Company L</span>
+        <span class="lighter">Company M</span>
+      </span>
+    </div>
+  </body>
+</html>
