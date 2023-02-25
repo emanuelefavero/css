@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .my-button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .my-button:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        background-color: blue;
+        transition: height 0.3s ease-in-out;
+        z-index: -1;
+      }
+
+      .my-button:hover:before {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="my-button">Hover Me</button>
+  </body>
+</html>
