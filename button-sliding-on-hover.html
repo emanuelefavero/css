@@ -6,36 +6,46 @@
     <title>Document</title>
 
     <style>
-      .my-button {
-        background-color: red;
-        color: white;
-        border: none;
-        padding: 10px 20px;
+      :root {
+        --primary-color: rgb(255, 0, 80);
+      }
+      .button-sliding {
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 100px;
+        padding: 0.75rem 1.5rem;
         font-size: 16px;
+        font-weight: 600;
         cursor: pointer;
         position: relative;
         overflow: hidden;
+
         z-index: 1;
       }
 
-      .my-button:before {
+      .button-sliding:before {
         content: '';
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
         height: 0%;
-        background-color: blue;
-        transition: height 0.3s ease-in-out;
+        background-color: var(--primary-color);
+        transition: height 0.2s ease-in-out;
+
         z-index: -1;
       }
 
-      .my-button:hover:before {
+      .button-sliding:hover:before {
         height: 100%;
+      }
+
+      .button-sliding:hover {
+        color: #fff;
       }
     </style>
   </head>
   <body>
-    <button class="my-button">Hover Me</button>
+    <button class="button-sliding">Hover Me</button>
   </body>
 </html>
