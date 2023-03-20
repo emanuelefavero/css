@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Inter',
+          'SF Pro', 'San Francisco Pro', 'Helvetica Neue', Helvetica, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        /* locally scoped custom property */
+        --border-radius: 999px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        box-shadow: 0 0 7px 0 rgba(50, 67, 123, 0.212);
+        border-radius: var(--border-radius);
+      }
+
+      .box {
+        padding: 0.6rem 0rem;
+        text-align: center;
+      }
+
+      .left {
+        background-color: magenta;
+        color: white;
+        border-radius: var(--border-radius);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box left">Hello</div>
+      <div class="box right">World</div>
+    </div>
+  </body>
+</html>
