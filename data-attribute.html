@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Inter',
+          'SF Pro', 'San Francisco Pro', 'Helvetica Neue', Helvetica, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        max-width: 750px;
+        box-shadow: 0 0 7px 0 rgba(50, 67, 123, 0.212);
+        border-radius: 999px;
+      }
+
+      .box {
+        padding: 0.6rem 0rem;
+        text-align: center;
+      }
+
+      /* data attribute */
+      .box[data-attribute='left'] {
+        background-color: rgb(115, 0, 255);
+        color: white;
+        border-radius: 999px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- data attribute - allows custom data that can be styled -->
+      <div class="box" data-attribute="left">Hello</div>
+      <div class="box">World</div>
+    </div>
+  </body>
+</html>
