@@ -15,14 +15,18 @@
         display: grid;
         place-items: center;
         min-height: 100vh;
+        padding-left: 2rem;
+        padding-right: 2rem;
       }
 
       .container {
         /* locally scoped custom property */
         --border-radius: 999px;
+
         display: grid;
         grid-template-columns: 1fr 1fr;
         width: 100%;
+        max-width: 750px;
         box-shadow: 0 0 7px 0 rgba(50, 67, 123, 0.212);
         border-radius: var(--border-radius);
       }
