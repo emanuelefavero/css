@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Pyramid Rotating</title>
+    <style>
+      /* default styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #111729;
+        color: #fff;
+      }
+
+      /* TODO: Assign an onclick to the pyramid or to each side (.pyramid div span) so when the user clicks on it something happens (you could use this on the portfolio so when the user hovers on a side the name of one of my projects appear and when the user clicks the project could be opened) */
+
+      /* TIP: To change the size of the pyramid, change the size in with, height and translateZ (translateZ should be half of width and height). You should also change the size of the shadow */
+      .pyramid {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        transform-style: preserve-3d;
+        animation: animate 8s linear infinite;
+        /* cursor: pointer; */
+      }
+      @keyframes animate {
+        0% {
+          transform: rotateX(-30deg) rotateY(0deg);
+        }
+        100% {
+          transform: rotateX(-30deg) rotateY(360deg);
+        }
+      }
+
+      /* pause animation on hover */
+      .pyramid:hover {
+        animation-play-state: paused;
+      }
+
+      .pyramid div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+      }
+      .pyramid div span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform-origin: bottom;
+        background: linear-gradient(180deg, #045e70, #41ffd6);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        transform: rotateY(calc(90deg * var(--i))) translateZ(25px)
+          rotateX(30deg); /* 300 / 2 = 150*/
+      }
+
+      /* change the pyramid side color on hover */
+      .pyramid div span:hover {
+        /* background: linear-gradient(180deg, #590470, #f641ff); */
+        background: linear-gradient(180deg, #034a59, #87ffe5);
+      }
+
+      .shadow {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        background: rgb(47, 208, 173, 0.2);
+        transform: rotateX(90deg) translateZ(-40px);
+        filter: blur(7px);
+        box-shadow: 0 0 30px rgba(65, 255, 214, 0.1),
+          0 0 40px rgba(65, 255, 214, 0.1), 0 0 50px rgba(65, 255, 214, 0.2),
+          0 0 60px rgba(65, 255, 214, 0.3), 0 0 rgb(65, 255, 214, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pyramid">
+      <div class="shadow"></div>
+      <div>
+        <span style="--i: 0"></span>
+        <span style="--i: 1"></span>
+        <span style="--i: 2"></span>
+        <span style="--i: 3"></span>
+      </div>
+    </div>
+  </body>
+</html>
