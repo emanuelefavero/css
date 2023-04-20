@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #1f232f;
+      }
+      .container {
+        display: flex;
+        gap: 40px;
+      }
+      .progress {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        color: #fff;
+        background: #343847
+          linear-gradient(to right, transparent 50%, var(--clr) 0);
+      }
+
+      .progress h3 {
+        position: absolute;
+        top: 46%;
+        left: 50%;
+        font-size: 2.5em;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        font-weight: 500;
+      }
+      .progress h3 span {
+        font-size: 0.65em;
+        font-weight: 400;
+      }
+
+      .progress h4 {
+        position: absolute;
+        top: 62%;
+        left: 50%;
+        font-size: 0.85em;
+        transform: translateX(-50%);
+        z-index: 1;
+        font-weight: 500;
+        color: var(--clr);
+        text-transform: uppercase;
+      }
+      .progress::before {
+        content: '';
+        display: block;
+        height: 100%;
+        margin-left: 50%;
+        border-radius: 0 100% 100% 0/50%;
+        transform-origin: left;
+      }
+      .progress::after {
+        content: '';
+        position: absolute;
+        inset: 10px;
+        border-radius: 50%;
+        background-color: #1b1d29;
+      }
+
+      .progress::before {
+        background: var(--clr);
+        transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
+      }
+
+      /* if value is less than 50% */
+      .progress.less-than-50::before {
+        background: #343847;
+        transform: rotate(calc(((var(--i) - 0) * 0.01turn)));
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="progress" style="--i: 75; --clr: #45ca6d">
+        <h3>75<span>%</span></h3>
+        <h4>Hello</h4>
+      </div>
+      <!-- If value is less than 50, add less-than-50 class -->
+      <div class="progress less-than-50" style="--i: 15; --clr: #8270f2">
+        <h3>15<span>%</span></h3>
+        <h4>World</h4>
+      </div>
+    </div>
+  </body>
+</html>
