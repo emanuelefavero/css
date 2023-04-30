@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      /* default */
+      @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #020617;
+        color: #fff;
+      }
+      /* ------- */
+
+      /* CARD CONTAINER */
+      .cardContainer {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+      }
+
+      /* CARD */
+      .card {
+        position: relative;
+        background: rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* Use the same size of the source .jpg image */
+        width: 400px;
+        height: 500px;
+      }
+
+      /* CARD NEON ANIMATED BORDER */
+      .card:before,
+      .card:after {
+        content: '';
+        position: absolute;
+        transition: 0.5s;
+        background: linear-gradient(315deg, #818cf8, #4f46e5);
+        filter: hue-rotate(calc(var(--i) * 360deg));
+
+        /* Neon borders size */
+        /* change only the second value (50px - 199px) */
+        inset: -80px 70px;
+        transform: rotate(190deg);
+      }
+
+      .card:after {
+        background: linear-gradient(315deg, #3730a3, #c7d2fe);
+        filter: hue-rotate(calc(var(--i) * 360deg));
+        inset: 100px -50px;
+        transform: rotate(195deg);
+      }
+
+      /* CARD HOVER */
+      .card:hover:before {
+        /* Change borders size on hover */
+        inset: -80px 90px;
+      }
+
+      .card:hover:after {
+        inset: 100px -20px;
+      }
+
+      /* @keyframes animate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      } */
+
+      /* CARD INSET BORDER */
+      .card i {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        z-index: 1;
+
+        /* try to comment out this */
+        background: #0f172a;
+      }
+
+      /* CARD CONTENT */
+      .card .content {
+        position: absolute;
+        background: rgb(2, 6, 23, 0.5);
+        /* border: 3px solid #070c23; */
+        background-size: cover;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+
+        /* Change this from 0 to 30 to adjust inset border */
+        inset: 10px;
+      }
+
+      .card .content img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      .card:hover .content img {
+        opacity: 0;
+      }
+
+      .card h2 {
+        position: relative;
+        z-index: 2;
+        font-size: 1.25em;
+        text-align: center;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        line-height: 1.25em;
+        text-transform: uppercase;
+      }
+
+      .card h2 span {
+        font-weight: 300;
+        font-size: 0.75em;
+      }
+
+      .card a {
+        position: relative;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background: #fff;
+        color: #070a1c;
+        border-radius: 25px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        transition: 0.5s;
+      }
+
+      .card a:hover {
+        letter-spacing: 0.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cardContainer">
+      <!-- The --i custom property is used for change the hue deg of each card. Accept values between 0 and 0.99 -->
+      <div class="card" style="--i: 0.7">
+        <i></i>
+        <div class="content">
+          <img src="assets/card-neon-animated.jpg" />
+          <h2>Lorem ipsum<br /><span>dolor sit amet</span></h2>
+          <a href="#">Click Me</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
