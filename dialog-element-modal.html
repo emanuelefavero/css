@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* Style Modal */
+      dialog {
+        background-color: hsl(300, 80%, 80%);
+      }
+
+      dialog::backdrop {
+        background-color: hsla(246, 80%, 50%, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Inn 2023 HTML introduces a new dialog element that is also capable of being a built in modal -->
+    <!-- You can now build a modal without much Javascript -->
+    <!-- ? A Modal is a "Pop up window", an "overlay message", a menu remains clear while the rest of the content is darkened -->
+
+    <button data-open-modal>Open</button>
+
+    <dialog data-modal>
+      <h1>Modal</h1>
+      <button data-close-modal>Close</button>
+
+      <!-- TIP: Add method='dialog' to prevent submitting form and just closing form on submit -->
+      <form>
+        <button type="submit">Submit</button>
+      </form>
+    </dialog>
+
+    <script>
+      const button = document.querySelector('[data-open-modal]')
+      const modal = document.querySelector('[data-modal]')
+      const closeButton = document.querySelector('[data-close-modal]')
+
+      // handle open and close modal
+      button.addEventListener('click', () => {
+        modal.showModal()
+
+        // TIP: Use modal.show() to show the modal as a dialog without the overlay
+        // TIP: By using modal.show() the modal is just a dialog and should be positioned near the proper content with css
+      })
+
+      closeButton.addEventListener('click', () => {
+        modal.close()
+
+        // TIP: Use if (dialog.open) to check if the dialog is open or not
+      })
+
+      // NOTE: The only thing that is not supported is the closing of the modal when clicking outside of the modal
+      // You can add this functionality with Javascript with getBoundingClientRect()
+      modal.addEventListener('click', (event) => {
+        const modalDimensions = modal.getBoundingClientRect()
+
+        // Check if the click is outside of the modal
+        if (
+          event.clientX < modalDimensions.left ||
+          event.clientX > modalDimensions.right ||
+          event.clientY < modalDimensions.top ||
+          event.clientY > modalDimensions.bottom
+        ) {
+          modal.close()
+        }
+      })
+
+      // NOTE: The dialog element is a new feature so before using it, check its browser support on caniuse:
+      // @see https://caniuse.com/?search=dialog
+      // @see https://caniuse.com/?search=CSS%20Selector%20backdrop
+    </script>
+  </body>
+</html>
