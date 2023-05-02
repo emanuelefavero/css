@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* Style Dialog */
+      span[data-button-dialog-container] {
+        position: relative;
+      }
+
+      dialog {
+        background-color: hsl(250, 80%, 80%);
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Inn 2023 HTML introduces a new dialog element that is also capable of being a built in modal -->
+
+    <!-- TIP: The span is only used for positioning the dialog below the button -->
+    <span data-button-dialog-container>
+      <button data-open-dialog>Open</button>
+
+      <dialog data-dialog>
+        <h1>Modal</h1>
+
+        <!-- TIP: Remove method='dialog' to submit the form normally instead of just closing the dialog -->
+        <form method="dialog">
+          <button type="submit">Submit</button>
+        </form>
+      </dialog>
+    </span>
+
+    <script>
+      const button = document.querySelector('[data-open-dialog]')
+      const dialog = document.querySelector('[data-dialog]')
+
+      // handle open and close dialog
+      button.addEventListener('click', () => {
+        if (dialog.open) {
+          dialog.close()
+          button.textContent = 'Open'
+        } else {
+          dialog.show()
+          button.textContent = 'Close'
+        }
+
+        // TIP: Use modal.showModal() to show the dialog as a modal with the overlay
+        // TIP: By using modal.showModal() the dialog becomes a modal and will be centered on the screen as well as dimming the background
+      })
+
+      // TIP: @see ./dialog-element-modal to see how to implement a modal with the dialog element
+
+      // NOTE: The dialog element is a new feature so before using it, check its browser support on caniuse:
+      // @see https://caniuse.com/?search=dialog
+    </script>
+  </body>
+</html>
