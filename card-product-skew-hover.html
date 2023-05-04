@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+
+    <style>
+      /* INCLUDE :ROOT COLORS FOR BOILERPLATE ON OTHER PROJECTS */
+      :root {
+        --card-bg: #122936;
+        --card-bg-primary: #2196f3;
+        --card-text: #fff;
+        --card-btn-text: #fff;
+        --card-btn-bg: #2196f3;
+        /* --card-btn-hover: #61b8ff; */
+        --card-btn-hover: #2195f3a8;
+
+        --bg-text-content: 'Product';
+        --bg-text-color: rgba(0, 0, 0, 0.1);
+      }
+
+      /* DO NOT INCLUDE * AND BODY */
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #09161d;
+      }
+
+      /* CARD  */
+      .card {
+        margin: 0.75rem;
+
+        position: relative;
+        width: 20rem;
+        height: 26rem;
+        background: var(--card-bg);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        width: 100%;
+        height: 100%;
+        background: var(--card-bg-primary);
+        /* U CAN TURN OFF SKEW IF U WANT */
+        transform: skewY(-20deg);
+        transition: 0.5s;
+      }
+
+      .card:hover::before {
+        top: -65%;
+        /* U CAN TURN OFF SKEW IF U WANT */
+        transform: skewY(25deg);
+      }
+
+      .card::after {
+        content: var(--bg-text-content);
+        position: absolute;
+        bottom: -1.5rem;
+        left: 0.9rem;
+        font-weight: 600;
+        font-size: 8rem;
+        color: var(--bg-text-color);
+      }
+
+      .card .imgBx {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1.25rem;
+        margin-bottom: 0.2rem;
+        z-index: 1;
+      }
+
+      /* MAXWIDTH VALUES DEPENDS ON IMG SIZE */
+      .card .imgBx img {
+        max-width: 100%;
+        transition: 0.5s;
+      }
+
+      /* CHANGE IMG BEHAVIOR WHILE HOVERING ITS CONTAINER */
+      .card:hover .imgBx img {
+        max-width: 80%;
+      }
+
+      .card .contentBx {
+        position: relative;
+        padding: 1.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1;
+      }
+
+      .card .contentBx h3 {
+        font-size: 1.125;
+        color: var(--card-text);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.06rem;
+        padding-bottom: 0.3rem;
+      }
+
+      .card .contentBx .price {
+        font-size: 1.5rem;
+        color: var(--card-text);
+        font-weight: 500;
+        letter-spacing: 0.06rem;
+      }
+
+      .card .contentBx .buy {
+        position: relative;
+        top: 12.5rem;
+        opacity: 0;
+        padding: 0.6rem 2rem;
+        margin-top: 1rem;
+        color: var(--card-btn-text);
+        text-decoration: none;
+        background: var(--card-btn-bg);
+        border-radius: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06rem;
+        transition: 0.5s;
+      }
+
+      .card:hover .contentBx .buy {
+        top: 0;
+        opacity: 1;
+      }
+
+      .card .contentBx .buy:hover {
+        background: var(--card-btn-hover);
+        transition: 0.2s;
+      }
+
+      /* CARD END */
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="imgBx">
+        <img src="assets/Phillips.png" />
+      </div>
+      <div class="contentBx">
+        <h3>Product Title</h3>
+        <h2 class="price">$99.<small>99</small></h2>
+        <a href="#" class="buy">Buy Now</a>
+      </div>
+    </div>
+  </body>
+</html>
