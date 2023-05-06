@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100%;
+        font-family: sans-serif;
+        font-size: 5rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 3rem;
+      }
+
+      .height-overflow-animation {
+        overflow: hidden;
+        height: 0;
+
+        /* NOTE: Speed */
+        transition: height 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="height-overflow-animation">Hello</div>
+    <!-- <div class="height-overflow-animation">World</div> -->
+
+    <script>
+      const heightOverflowAnimation = document.querySelectorAll(
+        '.height-overflow-animation'
+      )
+
+      // increase the height of the heightOverflowAnimation element to the height of the content smoothly on load
+      heightOverflowAnimation.forEach((element) => {
+        element.style.height = element.scrollHeight + 'px'
+      })
+    </script>
+  </body>
+</html>
