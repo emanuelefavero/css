@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        overflow: hidden;
+      }
+
+      /* ANIMATION */
+      .cursor-tail-animation {
+        width: 100%;
+        height: 100vh;
+
+        /* HIDE DEFAULT CURSOR */
+        cursor: none;
+      }
+      .cursor-tail-animation .circle {
+        height: 1rem;
+        width: 1rem;
+        border-radius: 1rem;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 99999999; /* so that it stays on top of all other elements */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-tail-animation" id="cursor-tail-animation">
+      <h1 id="mobile-text"></h1>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+
+    <script>
+      const cursorTailAnimation = document.querySelector(
+        '#cursor-tail-animation'
+      )
+      const coords = { x: 0, y: 0 }
+
+      for (let i = 0; i < 25; i++) {
+        const circle = document.createElement('div')
+        circle.classList.add('circle')
+        cursorTailAnimation.appendChild(circle)
+      }
+
+      const circles = document.querySelectorAll('.circle')
+
+      // CHOOSE COLOR
+      // PINK
+      const colors = []
+      for (let i = 0; i < 25; i++) {
+        colors.push(`hsl(${i + 345}, 100%, ${i % 2 === 0 ? 50 : 70}%)`)
+      }
+
+      // WHITE
+      // const colors = ['#fff']
+
+      // RED GRADIENT
+      // const colors = [
+      //   '#ffb56b',
+      //   '#fdaf69',
+      //   '#f89d63',
+      //   '#f59761',
+      //   '#ef865e',
+      //   '#ec805d',
+      //   '#e36e5c',
+      //   '#df685c',
+      //   '#d5585c',
+      //   '#d1525c',
+      //   '#c5415d',
+      //   '#c03b5d',
+      //   '#b22c5e',
+      //   '#ac265e',
+      //   '#9c155f',
+      //   '#950f5f',
+      //   '#830060',
+      //   '#7c0060',
+      //   '#680060',
+      //   '#60005f',
+      //   '#48005f',
+      //   '#3d005e',
+      // ]
+
+      circles.forEach(function (circle, index) {
+        circle.x = 0
+        circle.y = 0
+        circle.style.backgroundColor = colors[index % colors.length]
+      })
+
+      window.addEventListener('mousemove', function (e) {
+        coords.x = e.clientX
+        coords.y = e.clientY
+      })
+
+      function animateCircles() {
+        let x = coords.x
+        let y = coords.y
+
+        circles.forEach(function (circle, index) {
+          circle.style.left = x - 12 + 'px'
+          circle.style.top = y - 12 + 'px'
+
+          circle.style.scale = (circles.length - index) / circles.length
+
+          circle.x = x
+          circle.y = y
+
+          const nextCircle = circles[index + 1] || circles[0]
+          x += (nextCircle.x - x) * 0.3
+          y += (nextCircle.y - y) * 0.3
+        })
+
+        requestAnimationFrame(animateCircles)
+      }
+
+      animateCircles()
+
+      // CHECK IF USER IS ON MOBILE
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+      if (isMobile) {
+        // Show text if user is on mobile
+        const mobileText = document.querySelector('#mobile-text')
+        mobileText.textContent =
+          'This animation is not supported on mobile devices'
+
+        // hide text after 5 seconds
+        setTimeout(() => {
+          mobileText.style.display = 'none'
+        }, 5000)
+      }
+    </script>
+  </body>
+</html>
