@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #cursorCircle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: solid 1px hsla(0, 0%, 0%, 0.3);
+        border-radius: 50%;
+
+        /* NOTE: circle size */
+        width: 16px;
+        height: 16px;
+
+        /* transition: 0.2s; */
+      }
+    </style>
+  </head>
+  <body>
+    <span id="cursorCircle"></span>
+
+    <h1>Click to see the effect</h1>
+
+    <script>
+      const cursorCircle = document.getElementById('cursorCircle')
+      let cursorX = 0,
+        cursorY = 0
+      let xp = 0,
+        yp = 0
+
+      document.addEventListener('mousemove', (e) => {
+        // NOTE: circle position
+        cursorX = e.pageX - 10
+        cursorY = e.pageY - 10
+      })
+
+      setInterval(function () {
+        xp += (cursorX - xp) / 6
+        yp += (cursorY - yp) / 6
+
+        cursorCircle.style.left = xp + 'px'
+        cursorCircle.style.top = yp + 'px'
+
+        // NOTE: circle following cursor speed
+      }, 10)
+
+      // NOTE: circle style
+      document.addEventListener('mousedown', () => {
+        cursorCircle.style.transition = '0.2s'
+        cursorCircle.style.backgroundColor = '#4f29e6'
+        cursorCircle.style.border = 'none'
+      })
+
+      document.addEventListener('mouseup', () => {
+        cursorCircle.style.transition = '0s'
+        cursorCircle.style.backgroundColor = 'hsla(0, 0%, 100%, 0)'
+        cursorCircle.style.border = 'solid 1px hsla(0, 0%, 0%, 0.3)'
+      })
+    </script>
+  </body>
+</html>
