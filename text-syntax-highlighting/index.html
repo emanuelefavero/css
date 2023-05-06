@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- TIP: If using react or npm, try to find another library that is easier to customize -->
+    <!-- NOTE: Here we are importing the night-owl custom style of the prism library that we downloaded from the following link -->
+    <!-- @see https://github.com/SaraVieira/prism-theme-night-owl -->
+    <link rel="stylesheet" href="prism.css" />
+
+    <!-- TIP: You can also import this library as an npm package -->
+    <!-- @see link above ↑ -->
+
+    <!-- TIP: If you want to add prism css yourself without importing a remote css file you can directly add one of the css files that you can find in the repo, or go to the following link to download the css file to import -->
+    <!-- @see https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript -->
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .code-container {
+        width: 100%;
+        height: max-content;
+        border-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="code-container">
+      <pre><code class="language-javascript">
+      const message = 'Hello, world!'
+      console.log(message)
+      </code></pre>
+    </div>
+
+    <!-- NOTE: Unless you are installing the library as a npm package 'npm install --save prism-theme-night-owl', you need to add the prism.js file yourself (you can download it here) -->
+    <!-- @see https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript -->
+    <script src="prism.js"></script>
+  </body>
+</html>
