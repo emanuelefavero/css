@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .vertical-scroll-indicator {
+        position: fixed;
+        top: 1rem;
+        left: 2rem;
+        height: 100vh;
+        width: 2px;
+        background-color: rgba(112, 50, 235, 0.2);
+        border: 1px solid rgb(76, 23, 180);
+        z-index: 990;
+      }
+
+      .vertical-scroll-indicator::after {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -4.5px;
+        width: 5px;
+        height: 5px;
+        background-color: rgb(76, 23, 180);
+        border-radius: 50%;
+        border: 3px solid rgb(227, 215, 252);
+        box-shadow: 0 0 0 1px rgb(76, 23, 180);
+      }
+
+      section {
+        height: 100vh;
+        padding-left: 3rem;
+        padding-right: 1rem;
+        padding-top: 4rem;
+        padding-bottom: 1rem;
+        display: flex;
+      }
+
+      .scroll-to-button {
+        position: relative;
+        left: -2.1rem;
+        margin-right: 2rem;
+        /* background-color: rgb(176, 144, 239); */
+        background-color: rgb(227, 215, 252);
+        color: rgb(76, 23, 180);
+        height: max-content;
+        padding: 0.7rem 0.4rem;
+        border-radius: 1rem;
+        text-decoration: none;
+        border: 1px solid rgb(76, 23, 180);
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vertical-scroll-indicator"></div>
+
+    <section id="scroll-1">
+      <a class="scroll-to-button" href="#scroll-1">1</a>
+      <div>
+        <h1>Scroll 1</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+          voluptatum, quibusdam, voluptate, quia voluptas quod quos dolorum
+          voluptatibus quae quas quibusdam, voluptate, quia voluptas quod quos
+          dolorum voluptatibus quae quas.
+        </p>
+      </div>
+    </section>
+    <section id="scroll-2">
+      <a class="scroll-to-button" href="#scroll-2">2</a>
+      <div>
+        <h1>Scroll 2</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+          voluptatum, quibusdam, voluptate, quia voluptas quod quos dolorum
+          voluptatibus quae quas quibusdam, voluptate, quia voluptas quod quos
+          dolorum voluptatibus quae quas.
+        </p>
+      </div>
+    </section>
+    <section id="scroll-3">
+      <a class="scroll-to-button" href="#scroll-3">3</a>
+      <div>
+        <h1>Scroll 3</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+          voluptatum, quibusdam, voluptate, quia voluptas quod quos dolorum
+          voluptatibus quae quas quibusdam, voluptate, quia voluptas quod quos
+          dolorum voluptatibus quae quas.
+        </p>
+      </div>
+    </section>
+
+    <script>
+      // BEWARE: This code is only for smooth scrolling after the user clicks the link
+      document.addEventListener('DOMContentLoaded', () => {
+        const scrollLinks = document.querySelectorAll('.scroll-to-button')
+
+        scrollLinks.forEach((link) => {
+          link.addEventListener('click', (event) => {
+            event.preventDefault()
+
+            const targetId = link.getAttribute('href')
+            const targetElement = document.querySelector(targetId)
+            const targetPosition = targetElement.offsetTop
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth',
+            })
+          })
+        })
+      })
+    </script>
+  </body>
+</html>
