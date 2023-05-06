@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        height: 200vh;
+      }
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: red;
+        color: white;
+        padding: 1rem;
+      }
+
+      .header.hidden {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">Hello</header>
+
+    <script>
+      let prevScrollPos = window.pageYOffset
+
+      window.onscroll = () => {
+        let currentScrollPos = window.pageYOffset
+
+        if (prevScrollPos > currentScrollPos) {
+          document.querySelector('.header').classList.remove('hidden')
+        } else {
+          document.querySelector('.header').classList.add('hidden')
+        }
+
+        prevScrollPos = currentScrollPos
+      }
+    </script>
+  </body>
+</html>
