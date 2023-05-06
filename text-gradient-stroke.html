@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        font-weight: bold;
+        height: 100vh;
+        background: linear-gradient(90deg, #0c0d1e 0%, #161c43 100%);
+        color: #fff;
+      }
+      .gradient-text-stroke {
+        font-size: 8rem;
+        width: max-content;
+
+        /* NOTE: Change colors and color opacity */
+        background: linear-gradient(
+          90deg,
+          hsla(289, 91%, 62%, 0.4) 0%,
+          hsla(256, 91%, 68%, 0.6) 20%,
+          hsla(228, 100%, 70%, 0.8) 40%,
+          hsla(180, 96%, 61%, 0.8) 60%,
+          hsla(148, 96%, 64%, 0.6) 80%,
+          hsla(101, 91%, 62%, 0.4) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-stroke: 2px transparent;
+
+        /* NOTE: Change color and color opacity */
+        color: hsla(232, 64%, 11%, 0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gradient-text-stroke">Hello</div>
+  </body>
+</html>
