@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      div {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 5rem;
+      }
+
+      #scrollButton {
+        position: fixed;
+        font-size: 2.5rem;
+        bottom: 1rem;
+        right: 1rem;
+        background-color: transparent;
+        color: hsla(0, 0%, 0%, 0.5);
+        /* padding: 10px 15px; */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        animation: jump 1s infinite;
+      }
+
+      @keyframes jump {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Content of the page -->
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <!-- Scroll button button -->
+    <button id="scrollButton">↓</button>
+
+    <script>
+      // Scroll the page on button click
+      const scrollButton = document.getElementById('scrollButton')
+      scrollButton.addEventListener('click', function () {
+        window.scrollBy({
+          top: window.innerHeight,
+          left: 0,
+          behavior: 'smooth',
+        })
+      })
+
+      window.addEventListener('scroll', function () {
+        // Hide the scroll button when the page is scrolled
+        if (window.pageYOffset >= window.innerHeight) {
+          scrollButton.style.display = 'none'
+        } else {
+          scrollButton.style.display = 'block'
+        }
+      })
+    </script>
+  </body>
+</html>
