@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        width: 100%;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      header {
+        width: 100%;
+        background-color: white;
+        position: fixed;
+        padding: 1rem;
+      }
+
+      header ul {
+        list-style: none;
+      }
+
+      header a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .header-link {
+        /* NOTE: set transition speed here */
+        transition: color 0.3s ease-in-out;
+      }
+
+      .main-section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(237, 234, 241);
+        border-bottom: 1px dotted black;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li>
+          <a href="#home" class="header-link">Home</a>
+        </li>
+        <li>
+          <a href="#work" class="header-link">Work</a>
+        </li>
+        <li>
+          <a href="#contacts" class="header-link">Contacts</a>
+        </li>
+      </ul>
+    </header>
+
+    <main>
+      <section id="home" class="main-section">Home</section>
+      <section id="work" class="main-section">Work</section>
+      <section id="contacts" class="main-section">Contacts</section>
+    </main>
+
+    <script>
+      const headerLinks = document.querySelectorAll('.header-link')
+      const mainSections = document.querySelectorAll('.main-section')
+
+      // Intersection Observer configuration
+      const options = {
+        threshold: 0.5, // 50% of the section visible
+      }
+
+      // Create an Intersection Observer instance
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          const sectionIndex = Array.from(mainSections).indexOf(entry.target)
+          if (entry.isIntersecting) {
+            // NOTE: Set styling here
+            headerLinks[sectionIndex].style.color = 'magenta'
+          } else {
+            headerLinks[sectionIndex].style.color = 'black'
+          }
+        })
+      }, options)
+
+      // Observe each main section
+      mainSections.forEach((section) => {
+        observer.observe(section)
+      })
+
+      // Smooth scroll to section when header link is clicked
+      headerLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault()
+          const targetId = link.getAttribute('href')
+          const targetSection = document.querySelector(targetId)
+          targetSection.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
+  </body>
+</html>
