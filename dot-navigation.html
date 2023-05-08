@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        font-family: sans-serif;
+      }
+
+      div {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 5rem;
+      }
+
+      .dots {
+        position: fixed;
+        list-style: none;
+
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        padding-right: 1rem;
+
+        z-index: 999;
+      }
+
+      .dots .active a {
+        /* NOTE: Active size */
+        -webkit-transform: scale3d(1.2, 1.2, 1.2);
+        transform: scale3d(1.2, 1.2, 1.2);
+      }
+
+      .dots .active a:after {
+        height: 100%;
+      }
+
+      .dots li {
+        position: relative;
+
+        /* NOTE: Margin */
+        margin-bottom: 1rem;
+
+        /* NOTE: Size */
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+
+      .dots li a {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border-radius: 50%;
+        text-indent: -999em;
+        cursor: pointer;
+        position: absolute;
+        overflow: hidden;
+        background-color: transparent;
+        transition: all 0.3s ease;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+
+        /* NOTE: Border Color */
+        box-shadow: inset 0 0 0 2px #000;
+      }
+
+      .dots li a:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 0;
+        left: 0;
+        width: 100%;
+        transition: height 0.3s ease;
+
+        /* NOTE: Fill Color */
+        background-color: #000;
+        box-shadow: 0 0 1px #000;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="dots">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contacts">Contacts</a></li>
+    </ul>
+
+    <div id="home">Home</div>
+    <div id="work">Work</div>
+    <div id="contacts">Contacts</div>
+
+    <script>
+      const dots = document.querySelectorAll('.dots li')
+      const sections = document.querySelectorAll('div[id]')
+
+      const setActiveDot = (target) => {
+        dots.forEach((dot) => {
+          dot.classList.remove('active')
+          if (dot.firstChild.getAttribute('href') === target) {
+            dot.classList.add('active')
+          }
+        })
+      }
+
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop
+          const sectionHeight = section.offsetHeight
+
+          if (
+            scrollPosition >= sectionTop - sectionHeight / 2 &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
+            setActiveDot(`#${section.getAttribute('id')}`)
+          }
+        })
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener('click', (event) => {
+          event.preventDefault()
+          const target = dot.firstChild.getAttribute('href')
+          const offset = document.querySelector(target).offsetTop
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth',
+          })
+          setActiveDot(target)
+        })
+      })
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const hash = window.location.hash
+        if (hash) {
+          setActiveDot(hash)
+        }
+      })
+
+      window.addEventListener('scroll', handleScroll)
+    </script>
+  </body>
+</html>
