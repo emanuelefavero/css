@@ -90,7 +90,8 @@
 
       // Set the CSS variables to the x and y coordinates
       document.documentElement.style.setProperty('--cursorX', `${x}px`)
-      document.documentElement.style.setProperty('--cursorY', `${y}px`)
+      document.documentElement.style.setProperty('--cursorY', `${y - 80}px`)
+      // TIP: The -80 is to offset the lantern position so it's not directly under the finger on mobile
     }
 
     document.addEventListener('mousemove', followTheCursor)
