@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background-color: rgb(16, 23, 42);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+      h2 {
+        color: black;
+      }
+      #cursorCircle {
+        position: absolute;
+        /* NOTE: To change bright spot position you need to do it on the javascript code */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* border-radius: 50%; */
+
+        /* NOTE: circle size */
+        width: 350px;
+        height: 350px;
+
+        /* NOTE: styles for faded bright circle spot */
+        background-color: rgba(25, 52, 119, 0.5);
+        filter: blur(150px);
+        /* box-shadow: 0 0 16px hsl(239, 84%, 67%, 0.5); */
+      }
+    </style>
+  </head>
+  <body>
+    <span id="cursorCircle"></span>
+
+    <h1>Test text</h1>
+    <h2>Test text</h2>
+
+    <script>
+      const cursorCircle = document.getElementById('cursorCircle')
+      let cursorX = 0,
+        cursorY = 0
+      let xp = 0,
+        yp = 0
+
+      document.addEventListener('mousemove', (e) => {
+        // NOTE: circle position
+        cursorX = e.pageX
+        cursorY = e.pageY
+      })
+
+      setInterval(function () {
+        xp += (cursorX - xp) / 6
+        yp += (cursorY - yp) / 6
+
+        // TIP: Add px values to change bright spot position
+        cursorCircle.style.left = xp + 'px'
+        cursorCircle.style.top = yp + 'px'
+
+        // NOTE: circle following cursor speed
+      }, 10);
+    </script>
+  </body>
+</html>
