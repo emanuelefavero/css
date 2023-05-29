@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            body {
-                background-color: black;
-                color: white;
-                /* flex-direction: column; */
-                width: 100%;
-                height: 400vh;
-            }
-            .box {
-                position: fixed;
-                width: 50px;
-                height: 4px;
-                background-color: red;
-                border-radius: 50px;
-                top: 0;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="box" id="box"></div>
-        <script>
-            const box = document.getElementById('box')
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: black;
+        color: white;
+        width: 100%;
+        height: 400vh;
+      }
+      .scrollIndicator {
+        position: fixed;
+        width: 0;
+        height: 4px;
+        background-color: red;
+        border-radius: 50px;
+        top: 0;
+        transition: width 0.3s; /* Added transition for smoother animation */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scrollIndicator" id="scrollIndicator"></div>
+    <script>
+      const scrollIndicator = document.getElementById('scrollIndicator')
 
-            box.style.width = '0px'
-            document.addEventListener('scroll', () => {
-                box.style.width =
-                    (window.scrollY / window.innerWidth) * 100 + 'px'
-            })
-        </script>
-    </body>
+      // Function to update scroll indicator width
+      function updateScrollIndicator() {
+        const scrollWidth =
+          (window.scrollY /
+            (document.documentElement.scrollHeight - window.innerHeight)) *
+          100
+        scrollIndicator.style.width = scrollWidth + '%'
+      }
+
+      // Add scroll event listener to update the scroll indicator width
+      document.addEventListener('scroll', updateScrollIndicator)
+      window.addEventListener('resize', updateScrollIndicator) // Added resize event listener for responsiveness
+    </script>
+  </body>
 </html>
