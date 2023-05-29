@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Google Fonts Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      input,
+      textarea,
+      button,
+      select,
+      a,
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        text-decoration: none;
+        outline: none;
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* text-align: center; */
+        flex-direction: column;
+
+        perspective: 1000px;
+
+        background: rgb(14, 19, 31);
+      }
+
+      .container {
+        width: 300px;
+        height: 500px;
+
+        transform-style: preserve-3d;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        position: relative;
+
+        border-radius: 20px;
+        box-shadow: -2px -2px 3px rgba(255, 255, 255, 0.103),
+          2px 2px 4px rgba(0, 0, 0, 0.767);
+
+        background: linear-gradient(
+          to bottom,
+          rgb(6, 206, 241),
+          rgba(7, 105, 197, 0.849)
+        );
+
+        padding: 1rem;
+      }
+
+      img {
+        width: 90%;
+        filter: hue-rotate(200deg) drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+      }
+
+      .text {
+        width: 80%;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        color: #fff;
+        margin-bottom: 1rem;
+        margin-left: 0.3rem;
+        text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.432);
+      }
+
+      h3 span {
+        font-weight: 200;
+      }
+
+      p {
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.74);
+        margin-bottom: 1.5rem;
+      }
+
+      .sizes button {
+        outline: none;
+        border: none;
+        padding: 0.3rem 0.5rem;
+        margin: 0.2rem;
+        margin-bottom: 0.5rem;
+        border-radius: 50px;
+        font-family: 'Poppins', sans-serif;
+        background: rgba(255, 255, 255, 0.205);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.123);
+        color: #fff;
+      }
+
+      .sizes button:hover {
+        background: rgba(2, 53, 119, 0.185);
+      }
+
+      .sizes button.active {
+        background: rgba(2, 53, 119, 0.438);
+      }
+
+      .sizes button.active:hover {
+        background: rgba(2, 53, 119, 0.699);
+      }
+
+      button.find-out {
+        border: none;
+        padding: 0.3rem 2rem;
+        margin: 1.4rem 1rem 3.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-family: 'Poppins', sans-serif;
+        background: rgb(2, 53, 119);
+        color: rgb(225, 226, 238);
+        box-shadow: -2px -2px 7px rgba(255, 255, 255, 0.411),
+          2px 2px 7px rgba(0, 0, 0, 0.438);
+        transition: 0.1s;
+      }
+
+      button.find-out:hover {
+        transition: 0.2s;
+        background: rgb(0, 25, 63);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <img src="assets/nike-shoe-1.png" alt="nike-shoe" />
+      <div class="text">
+        <h3>NIKE AIR MAX <span>&reg;</span></h3>
+        <p>THE CUTTING EDGE OF COMFORT AND STYLE SINCE '87</p>
+      </div>
+      <div class="sizes">
+        <button>41</button>
+        <button>42</button>
+        <button class="active">43</button>
+        <button>44</button>
+      </div>
+      <button class="find-out">Find Out More</button>
+    </div>
+
+    <script>
+      // Animation
+      const container = document.querySelector('.container')
+      const img = document.querySelector('img')
+      const text = document.querySelector('.text')
+      const sizes = document.querySelector('.sizes')
+      const findOut = document.querySelector('.find-out')
+
+      container.addEventListener('mousemove', (e) => {
+        let xAxis = (window.innerWidth / 2 - e.pageX) / 20
+        let yAxis = (window.innerHeight / 2 - e.pageY) / 30
+
+        container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`
+      })
+
+      // Animate In
+      container.addEventListener('mouseenter', (e) => {
+        container.style.transition = '.2s linear'
+        img.style.transform = 'translateZ(50px) scale(1.05)'
+        // text.style.transform = 'translateZ(25px)';
+        // sizes.style.transform = 'translateZ(50px)';
+        findOut.style.transform = 'translateZ(20px)'
+      })
+
+      // Animate Out
+      container.addEventListener('mouseleave', (e) => {
+        container.style.transition = '.5s ease'
+        container.style.transform = 'rotateY(0deg) rotateX(0deg)'
+        img.style.transition = '.5s ease'
+        img.style.transform = 'translateZ(0px) scale(1)'
+      })
+    </script>
+  </body>
+</html>
