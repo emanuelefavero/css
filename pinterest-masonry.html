@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 1.3rem auto;
+        columns: 4;
+        column-gap: 0.5rem;
+      }
+
+      .container .box {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        border-radius: 1rem;
+
+        /* break-inside: avoid; it ensures that the entire element appears on a single page when printed */
+        break-inside: avoid;
+      }
+
+      .container .box img {
+        max-width: 100%;
+        border-radius: 1rem;
+      }
+
+      @media (max-width: 1200px) {
+        .container {
+          columns: 3;
+          width: calc(100% - 40px);
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          columns: 2;
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          columns: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <img src="https://picsum.photos/id/1/300/400" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/2/400/250" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/3/400/400" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/4/400/400" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/5/400/200" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/6/400/500" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/7/400/400" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/8/400/200" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/9/400/350" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/10/400/550" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/11/400/500" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/12/400/450" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/13/400/250" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/14/400/300" />
+      </div>
+      <div class="box">
+        <img src="https://picsum.photos/id/15/400/400" />
+      </div>
+    </div>
+  </body>
+</html>
