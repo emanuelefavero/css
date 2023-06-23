@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Document</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: radial-gradient(#333, #222);
+        color: white;
+      }
+
+      .card {
+        position: relative;
+        width: 200px;
+        height: 200px;
+      }
+      .card .rating {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        /* background: #f00; */
+      }
+      .card .rating .block {
+        position: absolute;
+        width: 2px;
+        height: 15px;
+        background: #000;
+        left: 50%;
+        transform-origin: 50% 100px;
+        opacity: 0;
+        animation: animate 0.1s linear forwards;
+      }
+
+      @keyframes animate {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .card .rating .block:nth-child(-n+91) /* get +1 value up of given data*/ {
+        /* CHANGE COLOR */
+        background: rgb(13, 247, 114);
+        box-shadow: 0 0 15px rgb(13, 247, 114), 0 0 30px rgb(13, 247, 114);
+      }
+      .card .rating h2 {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1.5rem;
+      }
+      .card .rating h2 span {
+        font-size: 2.5em;
+        font-weight: 700;
+      }
+      .card .rating h2 sup {
+        font-size: 1.5em;
+        font-weight: 300;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="rating">
+        <h2><span class="counter" data-target="90">90</span><sup>%</sup></h2>
+        <div class="block"></div>
+      </div>
+    </div>
+
+    <script>
+      const rating = document.getElementsByClassName('rating')[0]
+      const block = document.getElementsByClassName('block')
+
+      for (var i = 1; i < 100; i++) {
+        rating.innerHTML += "<div class='block'></div>"
+        block[i].style.transform = 'rotate(' + 3.6 * i + 'deg)'
+        block[i].style.animationDelay = `${i / 40}s`
+      }
+
+      // 360deg / 100 = 3.6deg
+      //now, animate this number
+
+      const counter = document.querySelector('.counter')
+      counter.innerText = 0
+
+      const target = +counter.getAttribute('data-target')
+
+      const NumberCounter = () => {
+        const value = +counter.innerText
+        if (value < target) {
+          counter.innerText = Math.ceil(value + 1)
+          setTimeout(() => {
+            NumberCounter()
+          }, 25)
+        }
+      }
+
+      NumberCounter()
+    </script>
+  </body>
+</html>
