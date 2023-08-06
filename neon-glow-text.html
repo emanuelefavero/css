@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: 'Nunito', -apple-system, system-ui, sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 1rem;
+        background-color: #12131f;
+        color: #fff;
+      }
+
+      /* NEON TEXT */
+      .neon-text {
+        position: relative;
+        animation: neon-glow 1.5s ease-in-out infinite alternate;
+        text-shadow: 0 0 6px #fb00ff83, 0 0 12px #fb00ff86, 0 0 8px #fb00ff81;
+      }
+
+      /* Animation */
+      @keyframes neon-glow {
+        0%,
+        100% {
+          transform: scale(1);
+          /* text-shadow: none; */
+          text-shadow: 0 0 3px #fb00ff83, 0 0 8px #fb00ff86, 0 0 5px #fb00ff81;
+        }
+        50% {
+          transform: scale(1.03);
+          text-shadow: 0 0 12px #fb00ff83, 0 0 16px #fb00ff86,
+            0 0 20px #fb00ff81;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NEON TEXT -->
+    <div class="neon-text">Neon Glow</div>
+  </body>
+</html>
