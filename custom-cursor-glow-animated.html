@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      :root {
+        --cursor: rgb(48, 248, 68);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        background: #191b32;
+        color: white;
+
+        /* hide original cursor */
+        cursor: none;
+      }
+
+      /* CURSOR */
+      .cursor {
+        position: fixed;
+        width: 25px;
+        height: 25px;
+        border-top: 5px solid var(--cursor);
+        border-left: 5px solid var(--cursor);
+        transform-origin: top;
+        transform: translate(-2px, 5px) rotate(15deg) scale(0);
+        transition: transform 0.1s;
+        pointer-events: none;
+        animation: animate 5s linear infinite;
+        filter: drop-shadow(0 0 5px var(--cursor))
+          drop-shadow(0 0 15px var(--cursor));
+
+        /* ANIMATION */
+        animation: animate 5s linear infinite;
+      }
+
+      /* CURSOR SCALE, POSITION, ROTATION */
+      body:hover .cursor {
+        transform: translate(-7px, 0px) rotate(15deg) scale(0.36);
+      }
+
+      /* CURSOR ARROW BODY */
+      .cursor::before {
+        content: '';
+        position: absolute;
+        left: -2.5px;
+        width: 5px;
+        height: 40px;
+        background: var(--cursor);
+        transform-origin: top;
+        transform: rotate(-45deg);
+      }
+
+      /* ANIMATION */
+      @keyframes animate {
+        0% {
+          filter: drop-shadow(0 0 5px var(--cursor))
+            drop-shadow(0 0 15px var(--cursor))
+            drop-shadow(0 0 30px var(--cursor)) hue-rotate(0deg);
+        }
+        100% {
+          filter: drop-shadow(0 0 5px var(--cursor))
+            drop-shadow(0 0 15px var(--cursor))
+            drop-shadow(0 0 30px var(--cursor)) hue-rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <script>
+      const cursor = document.querySelector('.cursor')
+      const body = document.querySelector('body')
+
+      // MOVE CURSOR
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.pageX + 'px'
+        cursor.style.top = e.pageY + 'px'
+      })
+    </script>
+  </body>
+</html>
