@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      :root {
+        --background-color: rgb(3, 109, 89);
+        --background-lines-color: rgba(255, 255, 255, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        color: white;
+
+        /* BACKGROUND COLORS */
+        background: var(--background-color);
+        background-image: linear-gradient(
+            to right,
+            var(--background-lines-color) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            var(--background-lines-color) 1px,
+            transparent 1px
+          );
+
+        /* SQUARES SIZE */
+        background-size: 30px 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const body = document.querySelector('body')
+
+      // BACKGROUND ANIMATION - move background on mouse move
+      document.addEventListener('mousemove', (e) => {
+        body.style.backgroundPositionX = e.pageX / -4 + 'px'
+        body.style.backgroundPositionY = e.pageY / -4 + 'px'
+      })
+    </script>
+  </body>
+</html>
