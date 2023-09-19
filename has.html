@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* Change the background color of all .items that have h2 as child */
+      .item:has(h2) {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <h2>Hello</h2>
+    </div>
+    <div class="item">
+      <p>Hello</p>
+    </div>
+    <div class="item">
+      <h2>Hello</h2>
+    </div>
+  </body>
+</html>
