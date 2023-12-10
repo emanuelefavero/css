@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+      }
+
+      .parent {
+        width: 100%;
+        column-count: 3; /* Number of columns */
+        column-gap: 1rem; /* Gap between columns */
+      }
+
+      .item {
+        margin-bottom: 1rem;
+        position: relative;
+        break-inside: avoid; /* Avoid breaking inside columns */
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px 8px 0 0; /* Rounded corners for the top */
+      }
+    </style>
+    <title>Masonry Layout like Pinterest</title>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="item">
+        <img src="https://placekitten.com/300/200" alt="Image 1" />
+      </div>
+      <div class="item">
+        <img src="https://placekitten.com/250/350" alt="Image 2" />
+      </div>
+      <div class="item">
+        <img src="https://placekitten.com/400/300" alt="Image 3" />
+      </div>
+      <div class="item">
+        <img src="https://placekitten.com/350/250" alt="Image 4" />
+      </div>
+      <div class="item">
+        <img src="https://placekitten.com/280/400" alt="Image 5" />
+      </div>
+      <div class="item">
+        <img src="https://placekitten.com/320/280" alt="Image 6" />
+      </div>
+      <div class="item">
+        <img src="https://placekitten.com/380/260" alt="Image 7" />
+      </div>
+      <div class="item">
+        <img src="https://placekitten.com/270/390" alt="Image 8" />
+      </div>
+      <div class="item">
+        <img src="https://placekitten.com/330/230" alt="Image 9" />
+      </div>
+      <div class="item">
+        <img src="https://placekitten.com/300/400" alt="Image 10" />
+      </div>
+    </div>
+  </body>
+</html>
