@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .parent {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1rem;
+        height: calc(
+          100vh - 4rem
+        ); /* 4rem = 2rem (body padding) + 2rem (grid gap) */
+      }
+
+      .item {
+        background-color: blueviolet;
+        color: #fff;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+      <div class="item">Item 4</div>
+      <div class="item">Item 5</div>
+      <div class="item">Item 6</div>
+      <div class="item">Item 7</div>
+      <div class="item">Item 8</div>
+      <div class="item">Item 9</div>
+    </div>
+
+    <script>
+      const items = document.querySelectorAll('.item')
+      const random = ['end', 'start', 'center']
+
+      items.forEach((item) => {
+        item.style.justifySelf =
+          random[Math.floor(Math.random() * random.length)]
+        item.style.alignSelf = random[Math.floor(Math.random() * random.length)]
+      })
+    </script>
+  </body>
+</html>
