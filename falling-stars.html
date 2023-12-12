@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Font Awesome CDN (icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- CSS -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0c101c;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .star {
+        position: absolute;
+        top: -1rem;
+        color: #fff;
+        animation: animate 5s linear forwards;
+      }
+
+      .star::before {
+        content: '\f005';
+        font-family: fontAwesome;
+        text-shadow: 0 0 5px #fff, 0 0 8px #fff, 0 0 20px #fff;
+      }
+
+      /* ANIMATION */
+      @keyframes animate {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        80% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // STARS
+      function stars() {
+        let e = document.createElement('div')
+        e.setAttribute('class', 'star')
+        document.body.appendChild(e)
+        e.style.left = Math.random() * +innerWidth + 'px'
+        // TIP: innerWidth is a built-in JS function that returns the width of the window
+
+        let size = Math.random() * 8 // size of stars
+        let duration = Math.random() * 10 // speed of stars (1-10)
+
+        e.style.fontSize = 1 + size + 'px'
+        e.style.animationDuration = 2 + duration + 's'
+
+        setTimeout(function () {
+          document.body.removeChild(e)
+        }, 5000) // time of stars (5000 = 5s)
+      }
+
+      // CALL STARS
+      setInterval(function () {
+        stars()
+      }, 200) // modify this number to change the number of stars (100-1000)
+    </script>
+  </body>
+</html>
