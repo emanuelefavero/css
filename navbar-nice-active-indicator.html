@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #080d18;
+      }
+
+      nav {
+        position: relative;
+        display: flex;
+        background: #17233f;
+        padding: 10px 0;
+      }
+
+      nav a {
+        position: relative;
+        text-decoration: none;
+        padding: 15px 25px;
+        color: #fff;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+      }
+
+      #marker {
+        position: absolute;
+        bottom: 0;
+        height: 100%;
+        width: 90px;
+        border-bottom: 5px solid #0867ff;
+        background: linear-gradient(0deg, #087fff33, transparent);
+        transition: 0.5s;
+        pointer-events: none;
+        filter: drop-shadow(0 5px 25px #08bdff);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Products</a>
+      <a href="#">Services</a>
+      <div id="marker"></div>
+    </nav>
+
+    <script>
+      let marker = document.querySelector('#marker')
+      let item = document.querySelectorAll('nav a')
+
+      function indicator(e) {
+        marker.style.left = e.offsetLeft + 'px'
+        marker.style.width = e.offsetWidth + 'px'
+      }
+
+      item.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          indicator(e.target)
+        })
+      })
+    </script>
+  </body>
+</html>
