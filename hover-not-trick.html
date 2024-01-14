@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #210f22;
+      }
+
+      /* HOVER */
+      /* when hovering over container, ... */
+      /* ...select all images that are not on hover */
+      .container:hover img:not(:hover) {
+        filter: grayscale(1);
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://placehold.co/100x200/orchid/white/png?text=Hello&font=playfairdisplay"
+      />
+      <img
+        src="https://placehold.co/100x200/mediumpurple/white/png?text=Bonjour&font=playfairdisplay"
+      />
+      <img
+        src="https://placehold.co/100x200/mediumslateblue/white/png?text=Ciao&font=playfairdisplay"
+      />
+      <img
+        src="https://placehold.co/100x200/mediumorchid/white/png?text=Hola&font=playfairdisplay"
+      />
+      <img
+        src="https://placehold.co/100x200/violet/white/png?text=Hallo&font=playfairdisplay"
+      />
+      <img
+        src="https://placehold.co/100x200/plum/white/png?text=Olá&font=playfairdisplay"
+      />
+    </div>
+  </body>
+</html>
