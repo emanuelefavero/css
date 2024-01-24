@@ -6,15 +6,14 @@
     <title>Document</title>
 
     <style>
-      .pointer-events-none {
-        pointer-events: none;
+      button {
+        pointer-events: none; /* set element to not be clickable */
 
-        /* user-select: none; */
+        user-select: none; /* set text to not be selectable */
       }
     </style>
   </head>
   <body>
-    <a href="#">Link 1</a>
-    <a class="pointer-events-none" href="#">Link 2</a>
+    <button>This button cannot be clicked</button>
   </body>
 </html>
