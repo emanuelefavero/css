@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        font-weight: bold;
+        font-size: 2rem;
+      }
+
+      /* @layer allows to set the specificity of styles depending on where the layer is created. If a layer is created after another layer, than it will take precedence */
+
+      /* TIP: It can be useful to use @layer instead of !important */
+
+      /* Comment and uncomment next line to see the changes */
+      @layer y, x;
+
+      @layer x {
+        .link {
+          color: red;
+        }
+      }
+
+      @layer y {
+        .link {
+          color: blue;
+
+          /* TIP: If we use !important blue will take precedence */
+          /* color: blue !important; */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" class="link">link</a>
+  </body>
+</html>
