@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background-color: indigo;
+
+        opacity: 1;
+        transition: opacity 1s ease-in;
+
+        /* STARTING STYLE lets you choose a style to show when the app loads */
+        @starting-style {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>
