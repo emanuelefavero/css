@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Follow Cursor Hover Animation</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        color: white;
+      }
+
+      button {
+        background: none;
+        padding: 0;
+        padding-bottom: 0.4rem;
+        color: white;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 2px;
+        border-bottom: 2px solid white;
+      }
+
+      #ring {
+        width: 1.5rem;
+        height: 1.5rem;
+        border: 1px solid #978fea;
+        border-radius: 50%;
+        position: fixed;
+        animation: pulse 2.5s linear infinite;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: transform 0.2s ease-out;
+        z-index: -1;
+      }
+
+      #ring.hovered {
+        transform: translate(-50%, -50%) scale(3.3);
+        background-color: #978fea;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(151, 143, 234, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 1.5rem rgba(151, 143, 234, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(151, 143, 234, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ring"></div>
+
+    <button>Hover Me</button>
+    <script>
+      const ring = document.getElementById('ring')
+      document.addEventListener('mousemove', (e) => {
+        ring.style.left = e.clientX + 'px'
+        ring.style.top = e.clientY + 'px'
+      })
+
+      const button = document.querySelector('button')
+      button.addEventListener('mouseenter', () => {
+        ring.classList.add('hovered')
+      })
+
+      button.addEventListener('mouseleave', () => {
+        ring.classList.remove('hovered')
+      })
+    </script>
+  </body>
+</html>
