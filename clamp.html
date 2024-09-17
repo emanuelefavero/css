@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Clamp</title>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        padding: 20px;
+      }
+
+      /* CLAMP */
+      /* Clamp lets you set a value that adjusts between a minimum and maximum depending on the viewport size. */
+      .clamp-box {
+        width: clamp(200px, 50vw, 600px); /* min, preferred, max */
+        font-size: clamp(1rem, 2vw, 3rem); /* min, preferred, max */
+
+        background-color: #edd7f4;
+        padding: 1.25rem;
+        text-align: center;
+        border: 2px solid #333;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Clamp</h1>
+
+    <div class="clamp-box">
+      This box's width and text size adjust depending on the viewport size.
+    </div>
+
+    <div style="margin-top: 2rem">
+      <p>
+        <strong>clamp(min, preferred, max)</strong> sets a value that adjusts
+        between a minimum and maximum.
+      </p>
+      <p>In this example:</p>
+      <ul>
+        <li>
+          Box width is between 200px and 600px, preferring 50% of the viewport
+          width.
+        </li>
+        <li>
+          Font size is between 1rem and 3rem, preferring 2% of the viewport
+          width.
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
