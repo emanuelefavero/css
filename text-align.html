@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: -apple-system, system-ui, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.25;
+        width: 300px;
+        overflow-x: hidden;
+
+        /* BEWARE: When you use text-wrap: balance or pretty there will be big gaps between text if you also use text-align: justify (@see .justify class below) */
+        /* text-wrap: balance; */
+      }
+
+      .start {
+        text-align: start;
+      }
+
+      .end {
+        text-align: end;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      /* TIP: justify will add gaps between words to make the text align to both sides */
+      .justify {
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <code>start</code>
+    <p class="start">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis amet
+      laudantium iure quos saepe. Alias.
+    </p>
+
+    <code>end</code>
+    <p class="end">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
+      explicabo incidunt voluptates suscipit libero maxime.
+    </p>
+
+    <code>center</code>
+    <p class="center">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
+      explicabo incidunt voluptates suscipit libero maxime.
+    </p>
+
+    <code>justify</code>
+    <p class="justify">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad vitae rem
+      quidem magnam quam reprehenderit?
+    </p>
+  </body>
+</html>
