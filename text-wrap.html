@@ -38,7 +38,12 @@
         text-wrap: pretty;
       }
 
-      /* `text-wrap: wrap` is the default value for text-wrap */
+      /* TIP: from MDN, "`text-wrap: stable` results in the same behavior as wrap, except that when the user is editing the content, the lines that come before the lines they are editing remain static rather than the whole block of text re-wrapping" */
+      .stable {
+        text-wrap: stable;
+      }
+
+      /* `text-wrap: wrap` is the default value for wrapping text */
       .wrap {
         text-wrap: wrap;
       }
@@ -58,6 +63,12 @@
 
     <code>pretty</code>
     <p class="pretty">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
+      explicabo incidunt voluptates suscipit libero maxime.
+    </p>
+
+    <code>stable</code>
+    <p class="stable">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
       explicabo incidunt voluptates suscipit libero maxime.
     </p>
