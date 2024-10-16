@@ -13,65 +13,65 @@
         flex-direction: column;
         min-height: 100vh;
         margin: 0;
+      }
+
+      p {
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.25;
+        width: 300px;
         overflow-x: hidden;
+        text-align: center;
+
+        /* BEWARE: When you use text-align: justify there will be big gaps between text if you also use text-wrap: balance or pretty */
+        /* text-align: justify; */
       }
 
       /* `text-wrap: balance` and `pretty` are used to wrap the text in a balanced way */
       /* TIP: Use balance for headings, since it will work only on 6 lines of text or less */
-      h1 {
-        width: 300px;
-        text-align: center;
-
+      .balance {
         text-wrap: balance;
       }
 
       /* TIP: Use pretty for paragraphs, since it will work on more than 6 lines of text */
-      p {
-        width: 300px;
-        font-size: 1.25rem;
-        line-height: 1.25;
-        text-align: center;
-
+      .pretty {
         text-wrap: pretty;
       }
 
       /* `text-wrap: wrap` is the default value for text-wrap */
-      h2 {
-        width: 300px;
-        text-align: center;
-
+      .wrap {
         text-wrap: wrap;
       }
 
       /* `text-wrap: nowrap` is used to prevent text wrapping */
-      h3 {
-        width: 300px;
-        text-align: center;
-
+      .nowrap {
         text-wrap: nowrap;
       }
     </style>
   </head>
   <body>
-    <h1>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
-      tempore?
-    </h1>
-
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nostrum,
-      assumenda vero optio molestias illo ipsam laudantium, necessitatibus
-      voluptatem, hic quos. Cumque reprehenderit voluptatibus delectus ratione
-      sint tempora sed! Nostrum?
+    <code>balance</code>
+    <p class="balance">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis amet
+      laudantium iure quos saepe. Alias.
     </p>
 
-    <h2>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat, sint!
-    </h2>
+    <code>pretty</code>
+    <p class="pretty">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
+      explicabo incidunt voluptates suscipit libero maxime.
+    </p>
 
-    <h3>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis,
-      eveniet.
-    </h3>
+    <code>wrap</code>
+    <p class="wrap">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad vitae rem
+      quidem magnam quam reprehenderit?
+    </p>
+
+    <code>nowrap</code>
+    <p class="nowrap">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut commodi
+      maxime rerum ad minima sequi!
+    </p>
   </body>
 </html>
