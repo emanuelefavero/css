@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: -apple-system, system-ui, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      /* Text Wrap balance and pretty are used to wrap the text in a balanced way */
+      /* TIP: Use balance for headings, since it will work only on 6 lines of text or less */
+      h1 {
+        width: 300px;
+        text-align: center;
+
+        text-wrap: balance;
+      }
+
+      /* TIP: Use pretty for paragraphs, since it will work on more than 6 lines of text */
+      p {
+        width: 300px;
+        font-size: 1.25rem;
+        line-height: 1.25;
+        text-align: center;
+
+        text-wrap: pretty;
+      }
+
+      /* Text Wrap Wrap is the standard value for text-wrap */
+      h2 {
+        width: 300px;
+        text-align: center;
+
+        text-wrap: wrap;
+      }
+
+      /* Text Wrap No Wrap is used to prevent text wrapping */
+      h3 {
+        width: 300px;
+        text-align: center;
+
+        text-wrap: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis,
+      tempore?
+    </h1>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nostrum,
+      assumenda vero optio molestias illo ipsam laudantium, necessitatibus
+      voluptatem, hic quos. Cumque reprehenderit voluptatibus delectus ratione
+      sint tempora sed! Nostrum?
+    </p>
+
+    <h2>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat, sint!
+    </h2>
+
+    <h3>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis,
+      eveniet.
+    </h3>
+  </body>
+</html>
