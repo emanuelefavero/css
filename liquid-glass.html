@@ -10,14 +10,26 @@
         :root {
           --foreground: #222;
           --background: #eee;
+
+          --card-background: rgba(232, 241, 255, 0.25);
+          --card-border: 2px solid rgba(237, 244, 255, 0.5);
+          --card-shadow: -3px -7px 3px -4px rgba(2, 3, 5, 0.2) inset,
+            5px -0px 3px -4px rgba(223, 223, 247, 0.6) inset,
+            0px 4px 4px 0px rgba(8, 9, 16, 0.3);
         }
 
-        /* @media (prefers-color-scheme: dark) {
+        @media (prefers-color-scheme: dark) {
           :root {
             --foreground: #eee;
             --background: #222;
+
+            --card-background: rgba(10, 11, 11, 0.2);
+            --card-border: 2px solid rgba(16, 17, 18, 0.1);
+            --card-shadow: -3px -7px 3px -4px rgba(217, 223, 236, 0.1) inset,
+              5px -0px 3px -4px rgba(223, 223, 247, 0.3) inset,
+              0px 4px 4px 0px rgba(8, 9, 16, 0.4);
           }
-        } */
+        }
 
         * {
           box-sizing: border-box;
@@ -52,13 +64,14 @@
           align-items: center;
           justify-content: center;
           text-align: center;
+          user-select: none;
+
+          /* Card Glass Style */
           border-radius: 2.5rem;
           backdrop-filter: blur(3px);
-          background-color: rgba(232, 241, 255, 0.25);
-          border: 2px solid rgba(237, 244, 255, 0.5);
-          box-shadow: -3px -7px 3px -4px rgba(2, 3, 5, 0.2) inset,
-            5px -0px 3px -4px rgba(223, 223, 247, 0.6) inset,
-            0px 4px 4px 0px rgba(8, 9, 16, 0.3);
+          background: var(--card-background);
+          border: var(--card-border);
+          box-shadow: var(--card-shadow);
         }
       }
     </style>
