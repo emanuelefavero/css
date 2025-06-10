@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @layer base {
+        :root {
+          --foreground: #222;
+          --background: #eee;
+        }
+
+        /* @media (prefers-color-scheme: dark) {
+          :root {
+            --foreground: #eee;
+            --background: #222;
+          }
+        } */
+
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+            Helvetica, sans-serif;
+          font-size: 1.5rem;
+          font-weight: 600;
+          background-color: var(--background);
+          color: var(--foreground);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          width: 100%;
+          overflow: hidden;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          padding-inline: clamp(1rem, 10vw, 10rem);
+          padding-block: clamp(1rem, 10vh, 10rem);
+        }
+
+        .card {
+          position: relative;
+          width: 100%;
+          height: 375px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          border-radius: 2.5rem;
+          backdrop-filter: blur(3px);
+          background-color: rgba(232, 241, 255, 0.25);
+          border: 2px solid rgba(237, 244, 255, 0.5);
+          box-shadow: -3px -7px 3px -4px rgba(2, 3, 5, 0.2) inset,
+            5px -0px 3px -4px rgba(223, 223, 247, 0.6) inset,
+            0px 4px 4px 0px rgba(8, 9, 16, 0.3);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">Hello World</div>
+
+    <!-- Background -->
+    <img
+      src="assets/bg-trees.jpg"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.75;
+      "
+    />
+  </body>
+</html>
