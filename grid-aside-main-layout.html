@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Layout */
+      .layout {
+        color: white;
+        font-family: sans-serif;
+        min-height: 100vh;
+
+        display: grid;
+        grid-template-columns: 1fr; /* Default to single column */
+
+        /* 2 columns layout on larger screens */
+        @media (min-width: 768px) {
+          grid-template-columns: 300px 1fr;
+        }
+      }
+
+      /* Sidebar */
+      .sidebar {
+        background-color: navy;
+        padding: 1rem;
+
+        display: none; /* Hide sidebar on small screens */
+
+        /* Show sidebar on larger screens */
+        @media (min-width: 768px) {
+          display: block;
+        }
+      }
+
+      /* Main */
+      .main {
+        padding: 1rem;
+        background-color: slateblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">Sidebar</aside>
+      <main class="main">Main</main>
+    </div>
+  </body>
+</html>
