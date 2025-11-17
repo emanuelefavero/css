@@ -7,9 +7,11 @@
 
     <style>
       :root {
+        /* Define the default background and foreground colors */
         --background: #fff;
         --foreground: #000;
 
+        /* TIP: This is how you can manage dark mode with custom properties */
         @media (prefers-color-scheme: dark) {
           --background: #000;
           --foreground: #fff;
@@ -22,6 +24,7 @@
       }
 
       .container {
+        /* TIP: We can override the custom properties for a specific container */
         --background: darkblue;
         --foreground: lightpink;
 
