@@ -6,9 +6,10 @@
     <title>Document</title>
 
     <style>
+      /* The property rule allows you to define custom properties with specific syntax, inheritance behavior, and initial values. It also adds type safety to CSS variables */
       @property --background {
         syntax: '<color>';
-        inherits: true;
+        inherits: true; /* This means the property will be inherited by child elements */
         initial-value: #fff;
       }
 
@@ -30,6 +31,7 @@
       }
 
       .container {
+        /* This is how we can override the custom properties for a specific container */
         --background: darkblue;
         --foreground: lightpink;
         background-color: var(--background);
