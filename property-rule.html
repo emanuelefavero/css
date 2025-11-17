@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @property --background {
+        syntax: '<color>';
+        inherits: true;
+        initial-value: #fff;
+      }
+
+      @property --foreground {
+        syntax: "'<color>'";
+        inherits: true;
+        initial-value: '#000';
+      }
+
+      body {
+        background-color: var(--background);
+        color: var(--foreground);
+
+        /* TIP: This is how you can manage dark mode with property */
+        @media (prefers-color-scheme: dark) {
+          --background: #000;
+          --foreground: #fff;
+        }
+      }
+
+      .container {
+        --background: darkblue;
+        --foreground: lightpink;
+        background-color: var(--background);
+        color: var(--foreground);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello</h1>
+
+    <div class="container">
+      <p>This text is inside the container</p>
+    </div>
+  </body>
+</html>
