@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: system-ui, Inter, Helvetica, Roboto, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      #modal {
+        background-color: black;
+        color: white;
+        padding: 1rem;
+        display: none;
+
+        &.show {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>inert Attribute example</h1>
+      <button id="open">Open Modal</button>
+    </div>
+    <div id="modal">
+      Modal content
+      <button id="close">Close modal</button>
+    </div>
+
+    <script>
+      const openButton = document.querySelector('button#open')
+      const closeButton = document.querySelector('button#close')
+      const modal = document.querySelector('#modal')
+      const container = document.querySelector('.container')
+
+      openButton.addEventListener('click', () => {
+        modal.classList.add('show')
+
+        // TIP: The inert attribute makes the container and its children non-interactive. It is useful for modals.
+        // TIP: When we use the `dialog` element, it handles this for us automatically. So no need to set inert manually.
+        container.setAttribute('inert', '')
+      })
+
+      closeButton.addEventListener('click', () => {
+        modal.classList.remove('show')
+        container.removeAttribute('inert')
+      })
+    </script>
+  </body>
+</html>
