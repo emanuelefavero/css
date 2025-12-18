@@ -15,6 +15,15 @@
         color: green;
       }
 
+      /* NOTE: It is similar to :where() but with more specificity, useful for common use cases, not base styles */
+      /* This has the same specificity as :is() */
+      /* header p,
+      main p,
+      .container p {
+        color: blue;
+      } */
+
+      /* NOTE: The :is() selector is more common than :where() */
       /* BEWARE: The :is() selector does not work with pseudo elements such as ::before and ::after */
     </style>
   </head>
