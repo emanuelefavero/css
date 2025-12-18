@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* :where() selector helps to group selectors without specificity */
+      :where(header) p {
+        color: magenta;
+      }
+
+      a:where(:hover, :focus) {
+        color: green;
+      }
+
+      /* NOTE: It is similar to :is() but with zero specificity, useful for setting up base styles */
+      /* This will override the magenta color from :where() */
+      /* header p {
+        color: blue;
+      } */
+
+      /* NOTE: The :is() selector is more common than :where() */
+      /* BEWARE: The :where() selector does not work with pseudo elements such as ::before and ::after */
+    </style>
+  </head>
+  <body>
+    <header>
+      <p>Hello Header</p>
+      <span>Ciao</span>
+    </header>
+    <a href="#">Hover or Focus me!</a>
+  </body>
+</html>
