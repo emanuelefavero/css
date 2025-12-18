@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* :is() selector helps to group selectors */
+      :is(header, main, .container) p {
+        color: magenta;
+      }
+
+      a:is(:hover, :focus) {
+        color: green;
+      }
+
+      /* BEWARE: The :is() selector does not work with pseudo elements such as ::before and ::after */
+    </style>
+  </head>
+  <body>
+    <header>
+      <p>Hello Header</p>
+      <span>Ciao</span>
+    </header>
+    <main>
+      <p>Hello Main</p>
+    </main>
+    <div class="container">
+      <p>Hello Footer</p>
+    </div>
+
+    <a href="#">Hover or Focus me!</a>
+  </body>
+</html>
