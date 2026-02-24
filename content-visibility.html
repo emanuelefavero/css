@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>content-visibility: auto</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 1rem;
+        font-family: system-ui, sans-serif;
+        line-height: 1.4;
+      }
+
+      .intro {
+        margin-bottom: 1rem;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        min-height: 120px;
+        padding: 0.875rem;
+        border: 1px solid #d7d7d7;
+        border-radius: 8px;
+        background: #fff;
+
+        /* TIP: `content-visibility: auto;` improves performance by skipping offscreen content. `contain-intrinsic-size` improves scroll performance by providing a placeholder size for the card (e.g. 120px = height) */
+        content-visibility: auto;
+        contain-intrinsic-size: 0 120px;
+      }
+
+      .card-title {
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="intro">
+      <h1>content-visibility: auto</h1>
+      <p>
+        The <code>content-visibility</code> property allows the browser to skip
+        rendering offscreen content, improving performance.
+      </p>
+      <p>
+        Scroll this page. The list has 2000 cards, and offscreen cards are
+        skipped until needed.
+      </p>
+    </section>
+
+    <section id="cards" class="cards" aria-label="Long list of cards"></section>
+
+    <script>
+      const TOTAL_CARDS = 2000
+      const cards = document.getElementById('cards')
+      const fragment = document.createDocumentFragment()
+
+      for (let index = 1; index <= TOTAL_CARDS; index += 1) {
+        const card = document.createElement('article')
+        card.className = 'card'
+
+        const title = document.createElement('h2')
+        title.className = 'card-title'
+        title.textContent = `Card ${index}`
+
+        const text = document.createElement('p')
+        text.className = 'card-text'
+        text.textContent =
+          'This card is rendered when it approaches the viewport.'
+
+        card.append(title, text)
+        fragment.appendChild(card)
+      }
+
+      cards.appendChild(fragment)
+    </script>
+  </body>
+</html>
