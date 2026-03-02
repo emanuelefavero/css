@@ -37,25 +37,21 @@
         background: #fff;
       }
 
-      /* Useful for newspaper/blog-like text columns */
-      .article-columns {
+      /* Demonstrates explicit column count */
+      .columns-count {
         columns: 3;
         column-gap: 1.25rem;
         column-rule: 1px solid #e7e7e7;
       }
 
-      /* Useful for responsive lists: keep ~14rem column width, add columns if space allows */
-      .list-columns {
+      /* Demonstrates width-based responsive columns */
+      .columns-width {
         columns: 14rem auto;
         column-gap: 1rem;
       }
 
-      .list-columns p {
+      .columns-item {
         margin: 0 0 0.5rem;
-        padding: 0.45rem 0.6rem;
-        border: 1px solid #efefef;
-        border-radius: 6px;
-        background: #fafafa;
         break-inside: avoid;
       }
     </style>
@@ -70,8 +66,8 @@
 
       <section>
         <h2>1) Fixed column count</h2>
-        <p><code>columns: 3;</code> splits long text into three columns.</p>
-        <article class="demo article-columns">
+        <p>Demonstrates <code>columns: 3;</code> for a fixed number of columns.</p>
+        <article class="demo columns-count">
           CSS Multi-column layout lets content flow naturally from one column to
           the next. It is handy for readable long-form text in limited space.
           The browser balances content across columns while preserving normal
@@ -83,22 +79,22 @@
       <section>
         <h2>2) Width-based responsive columns</h2>
         <p>
-          <code>columns: 14rem auto;</code> asks for ~14rem columns and lets the
-          browser choose how many fit.
+          Demonstrates <code>columns: 14rem auto;</code>: target width per column,
+          browser decides how many fit.
         </p>
-        <div class="demo list-columns">
-          <p>Breaking news</p>
-          <p>Sport highlights</p>
-          <p>Technology</p>
-          <p>Business</p>
-          <p>Design systems</p>
-          <p>Accessibility</p>
-          <p>Web performance</p>
-          <p>Product updates</p>
-          <p>Travel ideas</p>
-          <p>Food and recipes</p>
-          <p>Books and media</p>
-          <p>Local events</p>
+        <div class="demo columns-width">
+          <p class="columns-item">Breaking news</p>
+          <p class="columns-item">Sport highlights</p>
+          <p class="columns-item">Technology</p>
+          <p class="columns-item">Business</p>
+          <p class="columns-item">Design systems</p>
+          <p class="columns-item">Accessibility</p>
+          <p class="columns-item">Web performance</p>
+          <p class="columns-item">Product updates</p>
+          <p class="columns-item">Travel ideas</p>
+          <p class="columns-item">Food and recipes</p>
+          <p class="columns-item">Books and media</p>
+          <p class="columns-item">Local events</p>
         </div>
       </section>
     </main>
