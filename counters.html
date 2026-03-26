@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Counters</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: system-ui, sans-serif;
+        padding: 1rem;
+
+        & > * + * {
+          margin-top: 1rem;
+        }
+      }
+
+      ul.custom {
+        list-style: none;
+
+        /* Initializes a counter named "item" to 0 for this list */
+        counter-reset: item;
+
+        li::before {
+          /* Increments the counter by 1 for each <li> */
+          counter-increment: item;
+
+          /* Displays the current counter value counters(), allows nested counters like 1.1, 1.2, etc */
+          content: counters(item, '.') ' ';
+        }
+
+        /* Optional: Add styles for sub-lists */
+        &.sub {
+          margin-left: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Counters</h1>
+
+    <p>
+      CSS counters allow you to automatically number elements in a list or other
+      structured content.
+    </p>
+
+    <h2>Basic Counter</h2>
+
+    <ul class="custom">
+      <li>Item A</li>
+      <li>Item B</li>
+      <li>
+        Item C
+        <ul class="custom sub">
+          <li>Subitem A</li>
+          <li>Subitem B</li>
+          <li>Subitem C</li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>
