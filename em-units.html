@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EM Units</title>
+
+    <style>
+      /* EXAMPLE 1 */
+      .box {
+        border: 1px solid black;
+      }
+
+      /* em is relative to the parent's element font-size for font-size, but relative to the element's own font-size for padding, margin, etc. */
+
+      .parent {
+        font-size: 1rem; /* 1 × 16px = 16px */
+        padding: 1rem;
+        background-color: lightcoral;
+      }
+
+      /* This element's font-size is relative to the parent's font-size */
+      /* NOTE: If we increase this element's font-size, this element's padding will also increase proportionally, try it! */
+
+      .child {
+        font-size: 2em; /* 2 × 16px = 32px */
+        padding: 2em; /* 2 × 32px = 64px (relative to its own font-size, not the parent's) */
+        background-color: lightgreen;
+      }
+
+      /* BEWARE: The grandchild's font-size is relative to the child's font-size, not the parent's, so it will scale exponentially if you keep increasing the font-size in each generation (see the output) */
+
+      .grandchild {
+        font-size: 2em; /* 2 × 32px = 64px (relative to the .child font-size) */
+        padding: 2em; /* 2 × 64px = 128px (relative to its own font-size) */
+        background-color: lightblue;
+      }
+
+      /* TIP: Use rem units if you don't want the font-size to scale exponentially (compounding) */
+      /* TIP: Use rem for layout + spacing + base typography. 
+      Use em inside components when you want scaling behavior */
+
+      /* EXAMPLE 2 */
+      .button {
+        font-size: 1rem;
+
+        /* scale padding with font-size using em */
+        padding: 0.33em 1em;
+
+        &.large {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- EXAMPLE 1 -->
+    <div class="box parent">
+      Parent
+      <div class="box child">
+        Child
+        <div class="box grandchild">Grandchild</div>
+      </div>
+    </div>
+
+    <!-- EXAMPLE 2 -->
+    <div>
+      <button class="button">Default</button>
+      <button class="button large">Large</button>
+    </div>
+  </body>
+</html>
