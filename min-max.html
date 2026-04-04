@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,11 +18,11 @@
         text-align: center;
       }
 
-      /* mix() will select the smallest possible value. When viewport is smaller than 400px the box will take the viewport width size, without adding scrollbars */
+      /* min() will select the smallest possible value. When viewport is smaller than 400px the box will take the viewport width size, without adding scrollbars */
       .box-min {
         background-color: rgb(241, 244, 246);
-        width: min(400px, 100%);
-        height: min(400px, 100%);
+        width: min(300px, 100%);
+        height: min(300px, 100%);
       }
 
       /* max() will select the largest possible value from within the parentheses and stay there */
@@ -33,16 +33,28 @@
         font-size: max(1rem, 5vw);
       }
 
-      /* clamp() will select the smallest acceptable value (1.5rem), the ideal value (10vw, related to viewport width) and the biggest value (10rem) */
-      /* clamp() is awesome for making stuff responsive, without media queries */
-      h1 {
-        font-size: clamp(1.5rem, 10vw, 10rem);
+      /* minmax() defines the minimum and maximum size of a grid track */
+      .grid-minmax {
+        width: min(700px, 100%);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .grid-minmax div {
+        background-color: rgb(214, 237, 255);
+        border: 1px solid rgb(120, 170, 210);
+        padding: 1rem;
       }
     </style>
   </head>
   <body>
     <div class="box-min"></div>
     <p>Hello max</p>
-    <h1>Hello Clamp</h1>
+    <div class="grid-minmax">
+      <div>minmax 1</div>
+      <div>minmax 2</div>
+    </div>
   </body>
 </html>
