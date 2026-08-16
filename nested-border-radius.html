@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .card,
+      .card__inner {
+        border: 1px solid #000;
+      }
+
+      /* Nested Border Radius Formula */
+      /* 
+      TO get consistent borders and spacing around the inner element, the inner element's border radius is calculated as:
+      outer-radius - padding
+      */
+      .card {
+        --radius: 3rem;
+        --padding: 1rem;
+
+        padding: var(--padding);
+        border-radius: var(--radius);
+
+        .card__inner {
+          padding: var(--padding);
+          border-radius: max(0px, calc(var(--radius) - var(--padding)));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card__inner">
+        <h2>Lorem, ipsum dolor.</h2>
+      </div>
+    </div>
+  </body>
+</html>
