@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      details {
+        interpolate-size: allow-keywords;
+      }
+
+      details::details-content {
+        height: 0;
+        opacity: 0;
+        overflow: clip;
+
+        transition:
+          height 300ms ease,
+          opacity 300ms ease,
+          content-visibility 300ms allow-discrete;
+      }
+
+      details[open]::details-content {
+        height: auto;
+        opacity: 1;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        details::details-content {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <details name="example">
+      <summary>Click to expand 1</summary>
+      <p>This is the content inside the details element.</p>
+    </details>
+    <details name="example">
+      <summary>Click to expand 2</summary>
+      <p>This is the content inside the details element.</p>
+    </details>
+    <details name="example">
+      <summary>Click to expand 3</summary>
+      <p>This is the content inside the details element.</p>
+    </details>
+  </body>
+</html>
